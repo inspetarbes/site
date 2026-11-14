@@ -221,6 +221,15 @@ details.lpe-plus summary::after{content:"+";color:var(--accent);font-size:1.4rem
 details.lpe-plus[open] summary::after{content:"–"}
 details.lpe-plus>div{padding:0 20px 18px}
 
+/* Onglets dépliables du DU chant */
+.du-onglets{margin-top:36px}
+.ue-corps{padding:0 20px 18px;color:#e8eef6}
+.ue-corps ul{margin:0;padding-left:18px}
+.ue-corps li{margin-bottom:4px}
+.ue-sem{font:700 .95rem var(--sans);color:#fff;margin:6px 0 4px;display:flex;justify-content:space-between;gap:10px}
+.ue-sem span{color:var(--vert);font-weight:400;font-size:.88rem}
+.ue-sem:not(:first-child){margin-top:22px}
+
 /* ============ Visite 360° ============ */
 .v360{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:16px;margin:30px 0 56px}
 .v360>*{min-width:0}
@@ -722,31 +731,40 @@ dialog.lb .fermer{position:fixed;top:16px;right:16px;background:#fff;color:#000;
       <img class="du-photo" src="img/chant-piano.webp" alt="Séance de chant accompagnée au piano" loading="lazy">
     </div>
 
-    <div class="du-grille">
-      <div class="carte rv"><h3>Compétences visées</h3><ul>
+    <div class="du-onglets">
+    <details class="ue rv">
+      <summary>Compétences visées</summary>
+      <div class="ue-corps"><ul>
         <li>Techniques vocales : lyrique, chanson, gospel, traditionnel, jazz</li>
         <li>Interprétation et présence scénique</li>
         <li>Appareil phonatoire, préservation de la voix</li>
         <li>Accompagnement au clavier, direction de chœur</li>
         <li>Prise de son, enregistrement, son amplifié</li>
         <li>Art dramatique et expression corporelle</li></ul></div>
-      <div class="carte rv"><h3>Pour qui ?</h3><ul>
+    </details>
+    <details class="ue rv">
+      <summary>Pour qui ?</summary>
+      <div class="ue-corps"><ul>
         <li>Tous publics, niveau Bac</li>
         <li>De préférence avec une expérience de chanteur</li>
         <li>Intermittents du spectacle</li>
         <li>Enseignants en école de musique (avec ou sans DEM), dumistes</li>
         <li>Personnels des scènes de musiques actuelles</li></ul>
         <p style="margin:12px 0 0"><strong>Évaluation :</strong> contrôle continu.</p></div>
-      <div class="carte rv"><h3>Débouchés</h3><ul>
+    </details>
+    <details class="ue rv">
+      <summary>Débouchés</summary>
+      <div class="ue-corps"><ul>
         <li>Coach vocal</li>
         <li>Animateur musical ou scénique (groupes vocaux amateurs, enfants, adultes)</li>
         <li>Professeur en structures musicales</li>
         <li>Chanteur·se soliste, choriste</li></ul></div>
-    </div>
-
+    </details>
     <details class="ue rv">
-      <summary>Semestre 1 <span>143 h · 30 ECTS</span></summary>
-      <div class="table-scroll"><table>
+      <summary>Contenu de formation <span>265 h · 60 ECTS</span></summary>
+      <div class="table-scroll">
+        <h4 class="ue-sem">Semestre 1 <span>143 h · 30 ECTS</span></h4>
+        <table>
         <thead><tr><th>UE</th><th>Intitulé</th><th>Heures</th><th>ECTS</th></tr></thead>
         <tbody>
           <tr><td>01</td><td>Pratique musicale (accompagnement piano, direction chorale)</td><td class="n">25</td><td class="n">2</td></tr>
@@ -755,11 +773,9 @@ dialog.lb .fermer{position:fixed;top:16px;right:16px;background:#fff;color:#000;
           <tr><td>04</td><td>Chanson française</td><td class="n">25</td><td class="n">8</td></tr>
           <tr><td>05</td><td>Chanson anglo-saxonne</td><td class="n">25</td><td class="n">8</td></tr>
           <tr><td>06</td><td>Prise de son, diffusion du son (SMAC La Gespe, Tarbes) · Technique chantée amplifiée</td><td class="n">18</td><td class="n">2</td></tr>
-        </tbody></table></div>
-    </details>
-    <details class="ue rv">
-      <summary>Semestre 2 <span>122 h · 30 ECTS</span></summary>
-      <div class="table-scroll"><table>
+        </tbody></table>
+        <h4 class="ue-sem">Semestre 2 <span>122 h · 30 ECTS</span></h4>
+        <table>
         <thead><tr><th>UE</th><th>Intitulé</th><th>Heures</th><th>ECTS</th></tr></thead>
         <tbody>
           <tr><td>07</td><td>Coaching vocal : l'écoute de l'enseignant · Art dramatique et lyrique</td><td class="n">25</td><td class="n">2</td></tr>
@@ -768,8 +784,10 @@ dialog.lb .fermer{position:fixed;top:16px;right:16px;background:#fff;color:#000;
           <tr><td>10</td><td>Préparation du spectacle final (suite)</td><td class="n">25</td><td class="n">5</td></tr>
           <tr><td>11</td><td>Musique improvisée (traditionnelle, gospel, jazz…) · Expression corporelle et scénique</td><td class="n">25</td><td class="n">2</td></tr>
           <tr><td>12</td><td>Stage (mise en œuvre et suivi)</td><td class="n">10</td><td class="n">8</td></tr>
-        </tbody></table></div>
+        </tbody></table>
+      </div>
     </details>
+    </div>
 
   </div>
 </section>
