@@ -161,7 +161,10 @@ nav.menu a:hover,nav.menu a.actif{background:var(--marine-soft);color:var(--titr
   .etape{display:grid;grid-template-columns:66px 1fr;gap:14px;text-align:left;align-items:center;padding:0}
   .etape .rond{margin:0}
 }
-.alt-voie{margin-top:18px;font-size:.95rem;color:var(--gris)}
+/* En-tête du parcours : texte + vidéo verticale (format téléphone) */
+.parcours-tete{display:grid;grid-template-columns:1fr 260px;gap:clamp(24px,5vw,64px);align-items:center}
+.video-verticale{margin:0;aspect-ratio:9/16;width:100%;max-width:260px;justify-self:end}
+@media (max-width:760px){.parcours-tete{grid-template-columns:1fr}.video-verticale{justify-self:center}}
 
 /* ============ Onglets ============ */
 .onglets{display:flex;gap:8px;flex-wrap:wrap;margin:30px 0 22px}
@@ -443,10 +446,19 @@ dialog.lb .fermer{position:fixed;top:16px;right:16px;background:#fff;color:#000;
 <!-- ===================== PARCOURS ===================== -->
 <section id="parcours" class="bg-blanc">
   <div class="wrap">
-    <div class="rv">
-      <span class="kicker">Réforme 2026</span>
-      <h2>Comment devenir professeur des écoles ?</h2>
-      <p class="lead">Depuis la réforme de la formation des enseignants, le concours (CRPE) se passe <strong>en fin de licence</strong>. Les lauréats entrent ensuite dans un master de 2 ans <strong>rémunéré</strong>. Cliquez sur chaque étape.</p>
+    <div class="parcours-tete rv">
+      <div>
+        <span class="kicker">Réforme 2026</span>
+        <h2>Comment devenir professeur des écoles ?</h2>
+        <p class="lead">Depuis la réforme de la formation des enseignants, le concours (CRPE) se passe <strong>en fin de licence</strong>. Les lauréats entrent ensuite dans un master de 2 ans <strong>rémunéré</strong>.</p>
+        <p class="lead" style="margin:0">Regardez la vidéo en 35 secondes, puis cliquez sur chaque étape de la frise ci-dessous.</p>
+      </div>
+      <figure class="video video-verticale">
+        <video controls preload="none" playsinline poster="videos/poster-devenir-pe.jpg" aria-label="Vidéo : le parcours pour devenir professeur des écoles">
+          <source src="videos/devenir-pe.mp4" type="video/mp4">
+        </video>
+        <figcaption>▶ Le parcours · 35 s</figcaption>
+      </figure>
     </div>
 
     <div class="frise rv" role="tablist" aria-label="Étapes du parcours">
@@ -457,7 +469,6 @@ dialog.lb .fermer{position:fixed;top:16px;right:16px;background:#fff;color:#000;
       <button class="etape" role="tab" aria-selected="false" data-etape="4"><span class="rond">PE</span><span><strong>Titulaire</strong><small>Professeur des écoles</small><br><span class="salaire">≈ 2 100 €</span></span></button>
     </div>
     <div class="detail-etape" id="detail-etape" aria-live="polite"></div>
-    <p class="alt-voie rv"><strong>Autre voie :</strong> depuis la rentrée 2025, des modules de préparation au CRPE sont proposés dans les licences disciplinaires. Les étudiants entrés en PPPE en 2025 peuvent rejoindre la Licence PE en L2.</p>
   </div>
 </section>
 
