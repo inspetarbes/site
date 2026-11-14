@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>INSPE TOP · Site de Tarbes</title>
+<meta name="description" content="Devenir professeur des écoles à Tarbes : Licence PE, Master M2E, CRPE bilingue occitan et DU Pédagogie du chant à l'INSPE Toulouse Occitanie-Pyrénées, site de Tarbes.">
+<meta property="og:title" content="INSPE TOP · Site de Tarbes">
+<meta property="og:description" content="Se former au métier de professeur des écoles au pied des Pyrénées.">
+<meta property="og:image" content="img/hero-batiment.webp">
+<link rel="icon" href="img/logo-inspe.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@600;800&display=swap" rel="stylesheet">
+<!-- Pannellum : visionneuse de panoramas 360° -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css">
+<script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js" defer></script>
+<style>
+/* ============================================================
+   Charte INSPE TOP — tokens de couleur (clair / sombre)
+   ============================================================ */
+:root{
+  --marine:#203F63; --rouge:#DC0D15; --vert:#8AC1A0; --vert-fonce:#3B7A57;
+  --fond:#F6F6F6; --paper:#ffffff; --ink:#24232A; --gris:#645F6B; --line:#DCDCE2;
+  --marine-soft:#E6ECF4; --vert-soft:#E5F2EA; --rouge-soft:#FCE7E8;
+  --titre:var(--marine); --accent:var(--rouge);
+  --shadow:0 10px 30px rgba(32,63,99,.12);
+  --radius:18px;
+  --slab:"Roboto Slab", Georgia, serif;
+  --sans:Arial, "Helvetica Neue", Helvetica, sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --fond:#11161d; --paper:#1a212b; --ink:#E8EAEE; --gris:#A6ADB8; --line:#2c3644;
+    --marine-soft:#1d2a3b; --vert-soft:#16291f; --rouge-soft:#3a1517;
+    --titre:#BFD3EC; --accent:#FF4A50; --shadow:0 10px 30px rgba(0,0,0,.4);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --fond:#11161d; --paper:#1a212b; --ink:#E8EAEE; --gris:#A6ADB8; --line:#2c3644;
+  --marine-soft:#1d2a3b; --vert-soft:#16291f; --rouge-soft:#3a1517;
+  --titre:#BFD3EC; --accent:#FF4A50; --shadow:0 10px 30px rgba(0,0,0,.4);
+  color-scheme:dark;
+}
+
+/* ============ Base ============ */
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{margin:0;background:var(--fond);color:var(--ink);font:17px/1.6 var(--sans);overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3{font-family:var(--slab);color:var(--titre);line-height:1.15;margin:0 0 .5em}
+h2{font-size:clamp(1.8rem,4vw,2.6rem)}
+h3{font-size:1.25rem}
+p{margin:0 0 1em}
+.wrap{width:min(1180px,100% - 32px);margin-inline:auto}
+section{padding:clamp(56px,9vw,110px) 0}
+.kicker{display:inline-block;font:700 .78rem/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+.kicker::before{content:"";display:inline-block;width:26px;height:3px;background:var(--accent);vertical-align:middle;margin-right:10px;border-radius:2px}
+.lead{font-size:1.15rem;color:var(--gris);max-width:62ch}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+:focus-visible{outline:3px solid #F2B705;outline-offset:3px}
+
+/* ============ En-tête ============ */
+header.top{position:fixed;inset:0 0 auto;z-index:50;background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);transition:transform .3s}
+.top .wrap{display:flex;align-items:center;gap:16px;height:64px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0}
+.brand img{height:34px;width:auto;background:#fff;border-radius:6px;padding:3px 5px}
+.brand span{font:800 .95rem/1.1 var(--slab);color:var(--titre)}
+.brand small{display:block;font:600 .72rem var(--sans);color:var(--accent);letter-spacing:.08em;text-transform:uppercase}
+nav.menu{margin-left:auto;display:flex;gap:4px}
+nav.menu a{text-decoration:none;font-weight:700;font-size:.9rem;padding:8px 11px;white-space:nowrap;border-radius:999px;color:var(--ink)}
+nav.menu a:hover,nav.menu a.actif{background:var(--marine-soft);color:var(--titre)}
+.icon-btn{border:1px solid var(--line);background:var(--paper);color:var(--ink);width:40px;height:40px;border-radius:50%;display:grid;place-items:center;cursor:pointer;flex-shrink:0}
+.icon-btn svg{width:20px;height:20px}
+#burger{display:none}
+@media (max-width:1140px){
+  #burger{display:grid;margin-left:auto}
+  nav.menu{position:fixed;top:64px;left:0;right:0;flex-direction:column;background:var(--paper);padding:12px 16px 20px;border-bottom:1px solid var(--line);box-shadow:var(--shadow);transform:translateY(-130%);transition:transform .3s;margin:0}
+  nav.menu.ouvert{transform:none}
+  nav.menu a{padding:12px 14px}
+}
+
+/* ============ Hero ============ */
+.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;padding:120px 0 70px;color:#fff;isolation:isolate}
+.hero::before{content:"";position:absolute;inset:0;background:url(img/hero-batiment.webp) center/cover;z-index:-2;transform:scale(1.04);animation:zoom 18s ease-out forwards}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(32,63,99,.25) 0%,rgba(20,35,58,.55) 45%,rgba(16,28,46,.94) 100%)}
+@keyframes zoom{to{transform:scale(1)}}
+.hero h1{color:#fff;font-size:clamp(2.4rem,7vw,5rem);max-width:15ch;margin-bottom:.3em}
+.hero h1 em{font-style:normal;color:var(--vert)}
+.hero .lead{color:#e6edf6;font-size:clamp(1.05rem,2vw,1.3rem)}
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 28px}
+.pill{font-weight:700;font-size:.85rem;padding:7px 14px;border-radius:999px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);backdrop-filter:blur(4px)}
+.pill.r{background:var(--rouge);border-color:var(--rouge)}
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;text-decoration:none;padding:14px 22px;border-radius:999px;border:2px solid transparent;cursor:pointer;font-size:1rem;transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,.2)}
+.btn.rouge{background:var(--rouge);color:#fff}
+.btn.blanc{border-color:#fff;color:#fff}
+.btn.marine{background:var(--marine);color:#fff}
+.btn.contour{border-color:var(--titre);color:var(--titre)}
+.scroll-hint{position:absolute;bottom:18px;left:50%;translate:-50% 0;width:26px;height:42px;border:2px solid rgba(255,255,255,.7);border-radius:14px}
+.scroll-hint::after{content:"";position:absolute;left:50%;top:8px;width:4px;height:8px;margin-left:-2px;background:#fff;border-radius:2px;animation:sc 1.8s infinite}
+@keyframes sc{to{transform:translateY(14px);opacity:0}}
+
+/* ============ Chiffres clés ============ */
+.stats{margin-top:-46px;position:relative;z-index:2;padding:0}
+.stats .grille{display:grid;grid-template-columns:repeat(4,1fr);background:var(--paper);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+.stat{padding:24px 20px;border-right:1px solid var(--line)}
+.stat:last-child{border:0}
+.stat b{display:block;font:800 2.2rem/1 var(--slab);color:var(--accent)}
+.stat span{font-size:.92rem;color:var(--gris)}
+@media (max-width:760px){.stats .grille{grid-template-columns:1fr 1fr}.stat:nth-child(2){border-right:0}.stat:nth-child(-n+2){border-bottom:1px solid var(--line)}}
+
+/* ============ Grilles génériques ============ */
+.duo{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(28px,5vw,64px);align-items:center}
+@media (max-width:860px){.duo{grid-template-columns:1fr}}
+.photo-stack{position:relative}
+.photo-stack img{border-radius:var(--radius);box-shadow:var(--shadow);aspect-ratio:4/3;object-fit:cover;width:100%}
+.photo-stack img.petite{position:absolute;width:46%;right:-14px;bottom:-30px;border:6px solid var(--paper);aspect-ratio:1}
+@media (max-width:560px){.photo-stack img.petite{right:8px}}
+.carte{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:24px}
+.cartes{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.liste-check{list-style:none;padding:0;margin:0}
+.liste-check li{padding:8px 0 8px 32px;position:relative;border-bottom:1px dashed var(--line)}
+.liste-check li:last-child{border:0}
+.liste-check li::before{content:"";position:absolute;left:0;top:12px;width:20px;height:20px;border-radius:50%;background:var(--vert) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='3.5'%3E%3Cpath d='M5 12l5 5L20 7'/%3E%3C/svg%3E") center/12px no-repeat}
+.bg-blanc{background:var(--paper)}
+.bg-marine{background:var(--marine);color:#fff}
+.bg-marine h2,.bg-marine h3{color:#fff}
+.bg-marine .lead{color:#cfdbea}
+.bg-marine .kicker{color:var(--vert)}.bg-marine .kicker::before{background:var(--vert)}
+
+/* ============ Vidéos ============ */
+.video{position:relative;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);background:#000;aspect-ratio:16/9}
+.video video{width:100%;height:100%;display:block;object-fit:contain;background:#000}
+.video figcaption{position:absolute;left:12px;top:12px;background:var(--rouge);color:#fff;font-weight:700;font-size:.8rem;padding:5px 12px;border-radius:999px;pointer-events:none;transition:opacity .3s}
+.video.joue figcaption{opacity:0}
+
+/* ============ Parcours (frise) ============ */
+.frise{display:grid;grid-template-columns:repeat(5,1fr);gap:0;margin:40px 0 20px;position:relative}
+.frise::before{content:"";position:absolute;left:5%;right:5%;top:31px;height:4px;background:linear-gradient(90deg,var(--vert),var(--marine),var(--rouge));border-radius:2px}
+.etape{text-align:center;padding:0 8px;position:relative;cursor:pointer;background:none;border:0;color:inherit;font:inherit}
+.etape .rond{width:66px;height:66px;border-radius:50%;margin:0 auto 12px;display:grid;place-items:center;background:var(--paper);border:4px solid var(--marine);font:800 1rem var(--slab);color:var(--titre);transition:.25s}
+.etape.on .rond,.etape:hover .rond{background:var(--marine);color:#fff;transform:scale(1.08)}
+.etape.crpe .rond{border-color:var(--rouge);color:var(--accent)}
+.etape.crpe.on .rond,.etape.crpe:hover .rond{background:var(--rouge);color:#fff}
+.etape strong{display:block;font-family:var(--slab);color:var(--titre)}
+.etape small{color:var(--gris);font-size:.85rem}
+.etape .salaire{display:inline-block;margin-top:6px;font-weight:700;font-size:.85rem;background:var(--vert-soft);color:var(--vert-fonce);padding:3px 10px;border-radius:999px}
+:root[data-theme="dark"] .etape .salaire{color:var(--vert)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .etape .salaire{color:var(--vert)}}
+.detail-etape{background:var(--paper);border:1px solid var(--line);border-left:6px solid var(--marine);border-radius:var(--radius);padding:24px 28px;min-height:140px}
+.detail-etape.crpe{border-left-color:var(--rouge)}
+@media (max-width:760px){
+  .frise{grid-template-columns:1fr;gap:14px}
+  .frise::before{left:31px;right:auto;top:10px;bottom:10px;width:4px;height:auto;background:linear-gradient(180deg,var(--vert),var(--marine),var(--rouge))}
+  .etape{display:grid;grid-template-columns:66px 1fr;gap:14px;text-align:left;align-items:center;padding:0}
+  .etape .rond{margin:0}
+}
+.alt-voie{margin-top:18px;font-size:.95rem;color:var(--gris)}
+
+/* ============ Onglets ============ */
+.onglets{display:flex;gap:8px;flex-wrap:wrap;margin:30px 0 22px}
+.onglet{border:2px solid var(--line);background:var(--paper);color:var(--ink);font-weight:700;font-size:.95rem;padding:10px 18px;border-radius:999px;cursor:pointer}
+.onglet[aria-selected="true"]{background:var(--marine);border-color:var(--marine);color:#fff}
+[role="tabpanel"][hidden]{display:none}
+.panneau{animation:fade .4s}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}}
+
+/* Barres de répartition LPE */
+.barres{display:flex;height:46px;border-radius:12px;overflow:hidden;margin:16px 0 10px}
+.barres div{display:grid;place-items:center;color:#fff;font-weight:700;font-size:.85rem;transition:flex .8s}
+.legende{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:.88rem;color:var(--gris)}
+.legende i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.blocs{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:22px}
+.bloc{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:18px;border-top:5px solid var(--c)}
+.bloc .num{font:800 .8rem var(--sans);color:var(--c);letter-spacing:.1em;text-transform:uppercase}
+.bloc h3{font-size:1.05rem;margin:.3em 0}
+.bloc p{font-size:.92rem;color:var(--gris);margin:0}
+.bloc .ects{float:right;font-weight:700;font-size:.8rem;background:var(--marine-soft);color:var(--titre);padding:2px 8px;border-radius:999px}
+.statuts{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
+.statut{border-radius:var(--radius);padding:24px;color:#fff;background:var(--marine)}
+.statut.m2{background:linear-gradient(135deg,var(--marine),#2e5a8c)}
+.statut.tit{background:linear-gradient(135deg,var(--rouge),#a10a10)}
+.statut h3{color:#fff;margin-bottom:.2em}
+.statut .montant{font:800 2rem var(--slab);margin:8px 0}
+.statut ul{margin:0;padding-left:18px;font-size:.95rem}
+.note{font-size:.85rem;color:var(--gris);margin-top:16px}
+
+/* ============ Licence PE : compléments ============ */
+.lpe-bandeau{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:28px}
+.lpe-bandeau div{background:var(--marine-soft);border-radius:14px;padding:16px}
+.lpe-bandeau b{display:block;font:800 1.6rem/1.1 var(--slab);color:var(--titre)}
+.lpe-bandeau span{font-size:.88rem;color:var(--gris)}
+@media (max-width:760px){.lpe-bandeau{grid-template-columns:1fr 1fr}}
+.parcoursup{display:grid;grid-template-columns:1fr 1.1fr;gap:28px;align-items:center;margin-top:28px;background:var(--paper);border:1px solid var(--line);border-left:6px solid var(--rouge);border-radius:var(--radius);padding:26px}
+@media (max-width:860px){.parcoursup{grid-template-columns:1fr}}
+.calendrier{list-style:none;margin:0;padding:0;position:relative}
+.calendrier::before{content:"";position:absolute;left:7px;top:8px;bottom:8px;width:2px;background:var(--line)}
+.calendrier li{position:relative;padding:6px 0 6px 30px;font-size:.95rem}
+.calendrier li::before{content:"";position:absolute;left:0;top:11px;width:16px;height:16px;border-radius:50%;background:var(--paper);border:3px solid var(--rouge)}
+.calendrier time{display:block;font-weight:700;color:var(--accent);font-size:.82rem;text-transform:uppercase;letter-spacing:.06em}
+details.lpe-plus{background:var(--paper);border:1px solid var(--line);border-radius:14px;margin-top:12px}
+details.lpe-plus summary{cursor:pointer;padding:16px 20px;font:700 1.05rem var(--slab);color:var(--titre);list-style:none;display:flex;justify-content:space-between}
+details.lpe-plus summary::-webkit-details-marker{display:none}
+details.lpe-plus summary::after{content:"+";color:var(--accent);font-size:1.4rem;line-height:1}
+details.lpe-plus[open] summary::after{content:"–"}
+details.lpe-plus>div{padding:0 20px 18px}
+
+/* ============ Visite 360° ============ */
+.v360{display:grid;grid-template-columns:1fr 300px;gap:16px;margin:30px 0 56px}
+@media (max-width:900px){.v360{grid-template-columns:1fr}}
+.v360-ecran{position:relative;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);background:#0f1f33;aspect-ratio:16/9;min-height:320px}
+#pano{position:absolute;inset:0}
+.v360-titre{position:absolute;left:14px;bottom:14px;z-index:3;background:rgba(15,31,51,.82);color:#fff;font-weight:700;padding:8px 14px;border-radius:999px;font-size:.92rem;pointer-events:none;backdrop-filter:blur(4px)}
+@media (max-width:640px){.v360-aide{display:none}}
+.v360-aide{position:absolute;left:50%;top:16px;translate:-50% 0;white-space:nowrap;z-index:3;background:rgba(15,31,51,.82);color:#fff;font-size:.85rem;padding:7px 14px;border-radius:999px;pointer-events:none;transition:opacity .6s}
+.v360-demarrer{position:absolute;inset:0;z-index:4;display:grid;place-items:center;border:0;cursor:pointer;color:#fff;background:center/cover;font:inherit}
+.v360-demarrer::before{content:"";position:absolute;inset:0;background:rgba(15,31,51,.45)}
+.v360-demarrer span{position:relative;display:flex;align-items:center;gap:10px;background:var(--rouge);font-weight:700;font-size:1.05rem;padding:14px 24px;border-radius:999px;box-shadow:0 8px 24px rgba(0,0,0,.3)}
+.v360-fleches{position:absolute;right:14px;top:14px;z-index:3;display:flex;gap:6px}
+.v360-fleches button{width:38px;height:38px;border-radius:50%;border:0;background:rgba(15,31,51,.82);color:#fff;cursor:pointer;font-size:1.1rem}
+/* la liste prend la hauteur de la visionneuse (height:0 + min-height:100% dans la grille) */
+.v360-liste{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:10px;height:0;min-height:100%;overflow-y:auto}
+@media (max-width:900px){.v360-liste{height:auto;min-height:0;display:flex;gap:8px;overflow-x:auto;padding:8px}}
+.v360-groupe{font:700 .74rem var(--sans);text-transform:uppercase;letter-spacing:.1em;color:var(--accent);margin:12px 8px 6px}
+.v360-groupe:first-child{margin-top:4px}
+@media (max-width:900px){.v360-groupe{display:none}}
+.v360-liste button{display:flex;align-items:center;gap:10px;width:100%;border:2px solid transparent;background:none;color:var(--ink);padding:5px;border-radius:12px;cursor:pointer;text-align:left;font:inherit;font-size:.92rem}
+.v360-liste button img{width:76px;height:42px;object-fit:cover;border-radius:8px;flex-shrink:0}
+.v360-liste button:hover{background:var(--marine-soft)}
+.v360-liste button[aria-current="true"]{border-color:var(--rouge);background:var(--rouge-soft);font-weight:700}
+@media (max-width:900px){.v360-liste button{flex-direction:column;width:110px;flex-shrink:0;font-size:.8rem;text-align:center}.v360-liste button img{width:100px;height:56px}}
+.pnlm-container{background:#0f1f33!important;font-family:var(--sans)!important}
+.btn-360{display:inline-flex;align-items:center;gap:6px;margin-top:12px;font-weight:700;font-size:.9rem;border:2px solid var(--rouge);color:var(--accent);background:none;padding:8px 14px;border-radius:999px;cursor:pointer}
+
+/* ============ Occitan ============ */
+.occ{position:relative;overflow:hidden}
+.occ .croix{position:absolute;right:-90px;top:-60px;width:380px;opacity:.06;pointer-events:none}
+.bascule-langue{display:inline-flex;border:2px solid var(--rouge);border-radius:999px;overflow:hidden;margin-bottom:18px}
+.bascule-langue button{border:0;background:none;color:var(--accent);font-weight:700;padding:8px 16px;cursor:pointer}
+.bascule-langue button[aria-pressed="true"]{background:var(--rouge);color:#fff}
+.formateurs{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}
+.formateur{display:flex;gap:12px;align-items:center;background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:10px 16px 10px 10px}
+.avatar{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:var(--rouge-soft);color:var(--accent);font:800 .95rem var(--slab);flex-shrink:0}
+.formateur b{display:block;font-size:.95rem}
+.formateur small{color:var(--gris)}
+
+/* ============ DU chant ============ */
+.du-entete{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,56px);align-items:center}
+@media (max-width:860px){.du-entete{grid-template-columns:1fr}}
+.du-photo{border-radius:var(--radius);aspect-ratio:4/3;object-fit:cover;width:100%;box-shadow:var(--shadow)}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0}
+.tag{background:rgba(138,193,160,.18);color:var(--vert);border:1px solid rgba(138,193,160,.45);font-weight:700;font-size:.82rem;padding:5px 12px;border-radius:999px}
+.du-grille{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:40px}
+.du-grille .carte{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.14);color:#e8eef6}
+.du-grille .carte h3{color:var(--vert)}
+.du-grille ul{margin:0;padding-left:18px}
+.du-grille li{margin-bottom:4px}
+details.ue{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:14px;margin-top:14px;overflow:hidden}
+details.ue summary{cursor:pointer;padding:16px 20px;font:700 1.05rem var(--slab);list-style:none;display:flex;justify-content:space-between;gap:10px}
+details.ue summary::-webkit-details-marker{display:none}
+details.ue summary::after{content:"+";font-size:1.4rem;line-height:1;color:var(--vert)}
+details.ue[open] summary::after{content:"–"}
+details.ue summary span{color:var(--vert);font-family:var(--sans);font-size:.9rem}
+.table-scroll{overflow-x:auto;padding:0 20px 18px}
+table{width:100%;border-collapse:collapse;font-size:.93rem}
+th,td{text-align:left;padding:9px 10px;border-bottom:1px solid rgba(255,255,255,.12);vertical-align:top}
+th{color:var(--vert);font-size:.8rem;text-transform:uppercase;letter-spacing:.06em}
+td.n{text-align:right;white-space:nowrap}
+
+/* ============ Visite du campus ============ */
+.visite-nav{display:flex;gap:8px;overflow-x:auto;padding-bottom:8px;margin:30px 0 24px;scrollbar-width:thin}
+.visite-nav button{flex-shrink:0;display:flex;align-items:center;gap:8px;border:2px solid var(--line);background:var(--paper);color:var(--ink);font-weight:700;padding:10px 16px;border-radius:999px;cursor:pointer;font-size:.92rem}
+.visite-nav button[aria-selected="true"]{background:var(--rouge);border-color:var(--rouge);color:#fff}
+.visite-nav .n{display:grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--marine-soft);color:var(--titre);font-size:.75rem}
+.visite-nav button[aria-selected="true"] .n{background:#fff;color:var(--rouge)}
+.lieu{display:grid;grid-template-columns:1.2fr 1fr;gap:28px;align-items:start}
+@media (max-width:860px){.lieu{grid-template-columns:1fr}}
+.mosaique{display:grid;grid-template-columns:2fr 1fr;grid-template-rows:1fr 1fr;gap:10px;aspect-ratio:4/3}
+.mosaique button{padding:0;border:0;border-radius:14px;overflow:hidden;cursor:zoom-in;background:var(--line)}
+.mosaique button:first-child{grid-row:span 2}
+.mosaique.deux{grid-template-rows:1fr}
+.mosaique.deux button:first-child{grid-row:auto}
+.mosaique img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.mosaique button:hover img{transform:scale(1.06)}
+.lieu-txt .carte{margin-top:14px}
+.lieu-nav{display:flex;justify-content:space-between;margin-top:18px;gap:10px}
+
+/* ============ Vie étudiante ============ */
+.galerie{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:190px;grid-auto-flow:dense;gap:12px;margin-top:34px}
+.galerie button{position:relative;padding:0;border:0;border-radius:14px;overflow:hidden;cursor:zoom-in;background:var(--line)}
+.galerie button.l{grid-column:span 2}
+.galerie button.h{grid-row:span 2}
+.galerie img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.galerie button:hover img{transform:scale(1.06)}
+.galerie span{position:absolute;left:0;right:0;bottom:0;padding:24px 12px 10px;color:#fff;font-weight:700;font-size:.9rem;text-align:left;background:linear-gradient(transparent,rgba(0,0,0,.72))}
+@media (max-width:760px){.galerie{grid-template-columns:1fr 1fr;grid-auto-rows:150px}.galerie button.l{grid-column:span 2}}
+
+/* ============ Accès ============ */
+.acces{display:grid;grid-template-columns:1fr 1.2fr;gap:24px;align-items:stretch}
+@media (max-width:860px){.acces{grid-template-columns:1fr}}
+.acces-liste{display:grid;gap:12px}
+.acces-item{display:flex;gap:14px;align-items:flex-start;background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:16px}
+.acces-item .ic{width:44px;height:44px;border-radius:12px;background:var(--marine-soft);color:var(--titre);display:grid;place-items:center;flex-shrink:0}
+.acces-item .ic svg{width:22px;height:22px}
+.acces-item b{display:block}
+.acces-item small{color:var(--gris);font-size:.9rem}
+.carte-map{border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);min-height:380px;box-shadow:var(--shadow);background:var(--line)}
+.carte-map iframe{width:100%;height:100%;min-height:380px;border:0;display:block}
+
+/* ============ Et après ============ */
+.apres{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media (max-width:760px){.apres{grid-template-columns:1fr}}
+.apres .carte{border-top:6px solid var(--vert)}
+.apres .carte.b{border-top-color:var(--marine)}
+.apres h3 small{display:block;font:700 .78rem var(--sans);text-transform:uppercase;letter-spacing:.1em;color:var(--gris);margin-bottom:6px}
+
+/* ============ Contact ============ */
+.equipe{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin:30px 0}
+.membre{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:14px;padding:18px}
+.membre b{display:block;font-family:var(--slab);font-size:1.05rem}
+.membre small{display:block;color:var(--vert);font-weight:700;margin-bottom:8px}
+.membre a{color:#cfdbea;font-size:.9rem;word-break:break-all}
+.liens{display:flex;flex-wrap:wrap;gap:12px}
+.liens a{display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--marine);text-decoration:none;font-weight:700;padding:12px 18px;border-radius:999px}
+.liens a svg{width:18px;height:18px}
+
+footer{background:#0f1f33;color:#a9b6c7;padding:40px 0;font-size:.9rem}
+footer .wrap{display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between}
+.logos{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.logos img{height:46px;width:auto;background:#fff;border-radius:8px;padding:6px 10px}
+
+/* ============ Lightbox ============ */
+dialog.lb{border:0;padding:0;background:transparent;max-width:min(1200px,94vw);max-height:92vh}
+dialog.lb::backdrop{background:rgba(8,14,24,.9)}
+dialog.lb img{max-height:82vh;width:auto;margin:auto;border-radius:12px}
+dialog.lb p{color:#fff;text-align:center;margin:12px 0 0;font-weight:700}
+dialog.lb .fermer{position:fixed;top:16px;right:16px;background:#fff;color:#000;border:0;width:44px;height:44px;border-radius:50%;font-size:1.4rem;cursor:pointer}
+
+/* ============ Apparition au scroll ============ */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .7s,transform .7s}
+.rv.vu{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}html{scroll-behavior:auto}}
+
+#haut{position:fixed;right:16px;bottom:16px;z-index:40;background:var(--rouge);color:#fff;border:0;opacity:0;pointer-events:none;transition:opacity .3s}
+#haut.visible{opacity:1;pointer-events:auto}
+</style>
+</head>
+<body>
+
+<!-- ===================== EN-TÊTE ===================== -->
+<header class="top" id="top">
+  <div class="wrap">
+    <a class="brand" href="#accueil" aria-label="Accueil INSPE TOP Site de Tarbes">
+      <img src="img/logo-inspe.png" alt="">
+      <span>INSPE TOP<small>Site de Tarbes</small></span>
+    </a>
+    <nav class="menu" id="menu" aria-label="Navigation principale">
+      <a href="#metier">Le métier</a>
+      <a href="#parcours">Parcours</a>
+      <a href="#formations">Formations</a>
+      <a href="#occitan">Occitan</a>
+      <a href="#chant">DU chant</a>
+      <a href="#campus">Campus</a>
+      <a href="#vie">Vie étudiante</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button class="icon-btn" id="burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+    <button class="icon-btn" id="theme" aria-label="Basculer mode clair / sombre">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+    </button>
+  </div>
+</header>
+
+<main>
+<!-- ===================== HERO ===================== -->
+<section class="hero" id="accueil">
+  <div class="wrap">
+    <span class="kicker" style="color:#fff">Institut national supérieur du professorat et de l'éducation</span>
+    <h1>Devenir professeur des écoles <em>au pied des Pyrénées</em></h1>
+    <p class="lead">Au cœur d'un campus universitaire dynamique, le site de Tarbes de l'INSPE Toulouse Occitanie-Pyrénées forme les futurs enseignants du premier degré, de la licence au master.</p>
+    <div class="pills">
+      <span class="pill r">Nouveau · Licence PE</span>
+      <span class="pill">Master M2E</span>
+      <span class="pill">CRPE bilingue occitan</span>
+      <span class="pill">DU Pédagogie du chant</span>
+    </div>
+    <div class="btns">
+      <a class="btn rouge" href="#parcours">Découvrir le parcours
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a class="btn blanc" href="#campus">Visite guidée du campus</a>
+    </div>
+  </div>
+  <span class="scroll-hint" aria-hidden="true"></span>
+</section>
+
+<!-- ===================== CHIFFRES CLÉS ===================== -->
+<section class="stats" aria-label="Chiffres clés">
+  <div class="wrap">
+    <div class="grille rv">
+      <div class="stat"><b data-compte="5">0</b><span>années de formation, du bac au métier</span></div>
+      <div class="stat"><b data-compte="12">0</b><span>semaines de stage en 1<sup>re</sup> année de master</span></div>
+      <div class="stat"><b data-compte="120">0</b><span>places dans le grand amphithéâtre</span></div>
+      <div class="stat"><b data-compte="200" data-prefixe="≈">0</b><span>heures de formation spécifique en occitan</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== LE MÉTIER ===================== -->
+<section id="metier">
+  <div class="wrap duo">
+    <div class="rv">
+      <span class="kicker">Le métier</span>
+      <h2>Être professeur des écoles</h2>
+      <p class="lead">Enseignant du 1<sup>er</sup> degré, le professeur des écoles exerce de la toute petite section de maternelle (TPS) jusqu'au CM2.</p>
+      <p>Il permet aux élèves de s'approprier les savoirs fondamentaux et éveille chez eux l'intérêt pour le monde qui les entoure. Un métier polyvalent : français, mathématiques, sciences, arts, EPS, langues, numérique…</p>
+      <ul class="liste-check">
+        <li>Enseigner toutes les disciplines de l'école primaire</li>
+        <li>Accompagner chaque élève dans sa diversité</li>
+        <li>Travailler en équipe et avec les familles</li>
+        <li>Faire vivre les valeurs de la République</li>
+      </ul>
+    </div>
+    <div class="rv">
+      <figure class="video" style="margin:0">
+        <video controls preload="none" poster="videos/poster-master.jpg" aria-label="Témoignage d'une étudiante de master">
+          <source src="videos/temoignage-master.mp4" type="video/mp4">
+        </video>
+        <figcaption>▶ Elles en parlent · 2 min</figcaption>
+      </figure>
+      <p class="note">Témoignage d'étudiantes du site de Tarbes.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PARCOURS ===================== -->
+<section id="parcours" class="bg-blanc">
+  <div class="wrap">
+    <div class="rv">
+      <span class="kicker">Réforme 2026</span>
+      <h2>Comment devenir professeur des écoles ?</h2>
+      <p class="lead">Depuis la réforme de la formation des enseignants, le concours (CRPE) se passe <strong>en fin de licence</strong>. Les lauréats entrent ensuite dans un master de 2 ans <strong>rémunéré</strong>. Cliquez sur chaque étape.</p>
+    </div>
+
+    <div class="frise rv" role="tablist" aria-label="Étapes du parcours">
+      <button class="etape on" role="tab" aria-selected="true" data-etape="0"><span class="rond">Bac</span><span><strong>Baccalauréat</strong><small>Entrée à l'université</small></span></button>
+      <button class="etape" role="tab" aria-selected="false" data-etape="1"><span class="rond">L1-L3</span><span><strong>Licence PE</strong><small>3 ans · 180 ECTS</small></span></button>
+      <button class="etape crpe" role="tab" aria-selected="false" data-etape="2"><span class="rond">CRPE</span><span><strong>Concours</strong><small>En fin de L3</small></span></button>
+      <button class="etape" role="tab" aria-selected="false" data-etape="3"><span class="rond">M1-M2</span><span><strong>Master M2E</strong><small>2 ans en alternance</small><br><span class="salaire">1 400 → 1 800 €</span></span></button>
+      <button class="etape" role="tab" aria-selected="false" data-etape="4"><span class="rond">PE</span><span><strong>Titulaire</strong><small>Professeur des écoles</small><br><span class="salaire">≈ 2 100 €</span></span></button>
+    </div>
+    <div class="detail-etape" id="detail-etape" aria-live="polite"></div>
+    <p class="alt-voie rv"><strong>Autre voie :</strong> depuis la rentrée 2025, des modules de préparation au CRPE sont proposés dans les licences disciplinaires. Les étudiants entrés en PPPE en 2025 peuvent rejoindre la Licence PE en L2.</p>
+  </div>
+</section>
+
+<!-- ===================== FORMATIONS ===================== -->
+<section id="formations">
+  <div class="wrap">
+    <div class="rv">
+      <span class="kicker">Les formations</span>
+      <h2>Se former à Tarbes</h2>
+      <p class="lead">Cours en présentiel, stages en écoles et accompagnement de proximité dans un site à taille humaine.</p>
+    </div>
+    <div class="onglets" role="tablist" aria-label="Formations">
+      <button class="onglet" role="tab" aria-selected="true" aria-controls="p-lpe" id="t-lpe">Licence Professorat des écoles</button>
+      <button class="onglet" role="tab" aria-selected="false" aria-controls="p-m2e" id="t-m2e">Master M2E</button>
+      <button class="onglet" role="tab" aria-selected="false" aria-controls="p-crpe" id="t-crpe">Le concours</button>
+    </div>
+
+    <!-- Licence PE -->
+    <div class="panneau" role="tabpanel" id="p-lpe" aria-labelledby="t-lpe">
+      <div class="lpe-bandeau">
+        <div><b>1 570 h</b><span>de formation en 3 ans (référentiel national)</span></div>
+        <div><b>180</b><span>crédits ECTS</span></div>
+        <div><b>10 sem.</b><span>de stage minimum en école</span></div>
+        <div><b>8 sites</b><span>dans l'académie, dont Tarbes</span></div>
+      </div>
+      <div class="duo" style="align-items:start">
+        <div>
+          <h3>Licence PE · nouvelle formation depuis la rentrée 2026</h3>
+          <p>Ouverte conjointement par l'<strong>INSPE TOP</strong> (Université Toulouse Jean Jaurès), la <strong>Faculté Sciences et Ingénierie de l'Université de Toulouse</strong> et l'<strong>INU Champollion</strong>, elle prépare à l'entrée dans le métier et au <strong>CRPE</strong> (ainsi qu'au concours spécial langues régionales), désormais positionnés en fin de licence.</p>
+          <p>Une formation professionnalisante qui prépare à un concours exigeant et à un métier complexe. Elle combine :</p>
+          <ul class="liste-check" style="margin-bottom:1.2em">
+            <li><strong>Des savoirs disciplinaires</strong> au niveau attendu pour enseigner</li>
+            <li><strong>Des savoirs didactiques et pédagogiques</strong></li>
+            <li><strong>Des compétences professionnelles</strong> : gestion de classe, inclusion des élèves à besoins éducatifs particuliers, différenciation, numérique éducatif, évaluation, travail en équipe, valeurs de la République…</li>
+            <li><strong>Une immersion progressive sur le terrain</strong> : au moins 10 semaines de stage pour découvrir la vie de la classe</li>
+          </ul>
+          <p style="margin:0;font-weight:700">Répartition des enseignements</p>
+          <div class="barres" aria-hidden="true">
+            <div style="flex:70;background:var(--marine)">70 %</div>
+            <div style="flex:10;background:var(--rouge)">10 %</div>
+            <div style="flex:10;background:var(--vert-fonce)">10 %</div>
+            <div style="flex:10;background:#645F6B">10 %</div>
+          </div>
+          <div class="legende">
+            <span><i style="background:var(--marine)"></i>Savoirs disciplinaires 70 %</span>
+            <span><i style="background:var(--rouge)"></i>Enjeux pédagogiques 10 %</span>
+            <span><i style="background:var(--vert-fonce)"></i>Contexte institutionnel 10 %</span>
+            <span><i style="background:#645F6B"></i>Stages &amp; projet pro 10 %</span>
+          </div>
+        </div>
+        <div class="photo-stack">
+          <img src="img/cours2.webp" alt="Étudiants en travaux de groupe dans une salle de cours" loading="lazy">
+        </div>
+      </div>
+      <div class="blocs">
+        <div class="bloc" style="--c:var(--marine)"><span class="ects">125 ECTS</span><span class="num">Bloc 1</span><h3>S'approprier les savoirs</h3><p>Disciplines de l'école primaire, préparation aux épreuves disciplinaires du CRPE.</p></div>
+        <div class="bloc" style="--c:var(--rouge)"><span class="ects">15 ECTS</span><span class="num">Bloc 2</span><h3>Analyser les situations</h3><p>Développement de l'enfant, cycles, diversité des élèves, pratiques d'enseignement.</p></div>
+        <div class="bloc" style="--c:var(--vert-fonce)"><span class="ects">15 ECTS</span><span class="num">Bloc 3</span><h3>Le contexte institutionnel</h3><p>Valeurs de la République, système éducatif, droits et devoirs du fonctionnaire.</p></div>
+        <div class="bloc" style="--c:#645F6B"><span class="num">Bloc 4</span><h3>Construire son projet</h3><p>Situations concrètes, stages, accompagnement du projet professionnel.</p></div>
+      </div>
+
+      <div class="cartes" style="margin-top:22px">
+        <div class="carte"><span class="kicker">Les formateurs</span><h3>Des équipes mixtes</h3><p style="margin:0">Enseignants-chercheurs, enseignants du 1<sup>er</sup> et du 2<sup>nd</sup> degré affectés dans le supérieur, enseignants en temps partagé entre leur école et l'université, et professeurs des écoles maîtres formateurs.</p></div>
+        <div class="carte"><span class="kicker">Langue régionale</span><h3>Option occitan</h3><p style="margin:0">Pour préparer le CRPE spécial langue régionale : enseignements de langue et culture occitanes et initiation à la didactique du bilinguisme. <a href="#occitan">En savoir plus</a></p></div>
+        <div class="carte"><span class="kicker">Où se former ?</span><h3>8 sites dans l'académie</h3><p style="margin:0">Albi, Auch, Cahors, Foix, Montauban, Rodez, <strong>Tarbes</strong>, Toulouse. 312 places en L1 : 102 à Toulouse, 210 réparties sur les 7 sites départementaux.</p></div>
+      </div>
+
+      <!-- Candidature Parcoursup -->
+      <div class="parcoursup">
+        <div>
+          <span class="kicker">Comment s'inscrire ?</span>
+          <h3>Candidature sur Parcoursup</h3>
+          <p>Les vœux se formulent sur la plateforme nationale <strong>Parcoursup</strong>, en choisissant le site de Tarbes. Les dates de chaque campagne sont publiées sur parcoursup.gouv.fr.</p>
+          <a class="btn rouge" href="https://www.parcoursup.gouv.fr" target="_blank" rel="noopener">Aller sur Parcoursup</a>
+        </div>
+        <ol class="calendrier" aria-label="Calendrier de la campagne Parcoursup 2026, à titre indicatif">
+          <li><time>Mi-décembre</time>Ouverture de la carte des formations</li>
+          <li><time>Mi-janvier</time>Inscription et formulation des vœux</li>
+          <li><time>Mi-mars</time>Date limite pour formuler ses vœux</li>
+          <li><time>Début avril</time>Dossier complété, vœux confirmés</li>
+          <li><time>Début juin</time>Phase principale d'admission : réponses des formations</li>
+        </ol>
+      </div>
+      <p class="note">Calendrier indicatif établi d'après la campagne 2026 (17 déc. 2025 · 19 janv. · 12 mars · 1<sup>er</sup> avril · 2 juin 2026).</p>
+
+      <details class="lpe-plus">
+        <summary>Et après la licence ?</summary>
+        <div>
+          <p><strong>Lauréat du concours et licence validée :</strong> entrée en <strong>master M2E</strong>, 2 ans en alternance, rémunéré (élève fonctionnaire en M1, fonctionnaire stagiaire en M2).</p>
+          <p style="margin:0"><strong>Non lauréat :</strong> un parcours du master M2E est aussi ouvert, dans la limite des places disponibles, sur la plateforme <a href="https://www.monmaster.gouv.fr" target="_blank" rel="noopener">Mon Master</a>. Le concours peut être repassé à une session ultérieure.</p>
+        </div>
+      </details>
+      <details class="lpe-plus">
+        <summary>Réorientations possibles</summary>
+        <div>
+          <p><strong>En cours ou en fin de L1</strong> (sur candidature, selon les places) : L2 Sciences et Humanités (UT), L2 Lettres modernes, Sciences du langage, MIASHS, Sciences de l'éducation (UT2J), L2 Lettres (INUC), L2 pluridisciplinaire Histoire-Géographie-Sociologie-Économie (UT2J, site de Foix).</p>
+          <p style="margin:0"><strong>En fin de L2 :</strong> L3 Licence pro Génie géomatique pour l'aménagement du territoire (IUT Auch), L3 parcours Information-communication (IUT).</p>
+        </div>
+      </details>
+      <details class="lpe-plus">
+        <summary>D'autres parcours pour devenir professeur des écoles</summary>
+        <div><p style="margin:0">Mineure professorat des écoles à l'UT2J (L2 et L3) · Parcours Réorientation Professorat des écoles (L3 PE Réo) à l'UT FSI · Orientation vers le professorat des écoles à l'INUC (L2 et L3).</p></div>
+      </details>
+    </div>
+
+    <!-- Master M2E -->
+    <div class="panneau" role="tabpanel" id="p-m2e" aria-labelledby="t-m2e" hidden>
+      <div class="duo" style="align-items:start;margin-bottom:28px">
+        <div>
+          <h3>Master Enseignement et Éducation (M2E)</h3>
+          <p>Accessible après la réussite au concours, ce master de 2 ans alterne enseignements universitaires et stages sur le terrain. Il s'articule autour de 4 axes :</p>
+          <ul class="liste-check">
+            <li>Conception et mise en œuvre des apprentissages</li>
+            <li>Adaptation à la diversité des élèves et des contextes</li>
+            <li>Initiation à la recherche et développement professionnel continu</li>
+            <li>Inscription de l'acte d'enseigner dans le service public d'éducation</li>
+          </ul>
+        </div>
+        <div class="photo-stack">
+          <img src="img/stage-classe.webp" alt="Une classe d'école primaire pendant un stage" loading="lazy">
+          <img class="petite" src="img/cours1.webp" alt="Étudiants en cours à l'INSPE" loading="lazy">
+        </div>
+      </div>
+      <div class="statuts">
+        <div class="statut"><small>1<sup>re</sup> année · M1</small><h3>Élève fonctionnaire</h3><div class="montant">≈ 1 400 €</div><ul><li>Nets par mois</li><li>12 semaines de stage</li></ul></div>
+        <div class="statut m2"><small>2<sup>e</sup> année · M2</small><h3>Fonctionnaire stagiaire</h3><div class="montant">≈ 1 800 €</div><ul><li>Nets par mois</li><li>En responsabilité de classe à mi-temps</li></ul></div>
+        <div class="statut tit"><small>Après le master</small><h3>Professeur titulaire</h3><div class="montant">≈ 2 100 €</div><ul><li>Nets par mois</li><li>Engagement de servir de 4 ans</li></ul></div>
+      </div>
+      <p class="note">Montants indicatifs (source : devenirenseignant.gouv.fr). Pendant la période de transition 2025-2027, d'autres situations existent : renseignez-vous auprès du site.</p>
+    </div>
+
+    <!-- Concours -->
+    <div class="panneau" role="tabpanel" id="p-crpe" aria-labelledby="t-crpe" hidden>
+      <div class="cartes">
+        <div class="carte"><span class="kicker">Admissibilité · écrits</span><h3>Épreuves notionnelles</h3><ul class="liste-check"><li>Français et mathématiques</li><li>Autres domaines d'enseignement</li></ul></div>
+        <div class="carte"><span class="kicker">Admission · oraux</span><h3>Épreuves orales</h3><ul class="liste-check"><li>Exposé disciplinaire en français ou en mathématiques</li><li>Épreuve d'entretien et de motivation</li></ul></div>
+        <div class="carte"><span class="kicker">Bon à savoir</span><h3>Calendrier</h3><ul class="liste-check"><li>Concours accessible dès l'inscription en L3</li><li>Il faut valider la licence pour bénéficier du concours</li><li>Bénéfice du concours conservé 1 an</li></ul></div>
+      </div>
+      <p class="note">Consultez le détail officiel des épreuves et les dates d'inscription sur <a href="https://www.devenirenseignant.gouv.fr/" target="_blank" rel="noopener">devenirenseignant.gouv.fr</a>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== OCCITAN ===================== -->
+<section id="occitan" class="bg-blanc occ">
+  <img class="croix" src="img/croix-occitane.png" alt="" aria-hidden="true">
+  <div class="wrap duo">
+    <div class="rv">
+      <span class="kicker">CRPE bilingue</span>
+      <h2>Envie d'enseigner en occitan ?</h2>
+      <div class="bascule-langue" role="group" aria-label="Langue du texte">
+        <button aria-pressed="true" data-langue="fr">Français</button>
+        <button aria-pressed="false" data-langue="oc">Occitan</button>
+      </div>
+      <div data-texte="fr">
+        <p class="lead">Le site de Tarbes est l'un des <strong>2 sites de l'académie de Toulouse</strong> préparant au CRPE spécial bilingue français-occitan. Il est spécialisé en <strong>occitan gascon</strong>.</p>
+        <p>Cette formation spécifique (environ 200 h dans la maquette globale) vous mène au CRPE bilingue et au métier de professeur des écoles bilingue. Le concours comporte les mêmes épreuves que le CRPE, avec des épreuves supplémentaires en langue occitane (écrit et oral) et en didactique du bilinguisme.</p>
+        <ul class="liste-check">
+          <li>Renforcement en langue occitane</li>
+          <li>Didactique du bilinguisme</li>
+          <li>Préparation et analyse de stages en classes bilingues (8 dans le département)</li>
+        </ul>
+      </div>
+      <div data-texte="oc" hidden lang="oc">
+        <p class="lead">Avetz hami d'ensenhar en lenga nosta ? L'INSPE de Tarba, de qui ei especializat en <strong>gascon</strong>, qu'ei un deus dus sites universitaris de l'Acadèmia de Tolosa de qui preparan au CRPE especiau bilingüe francés-occitan.</p>
+        <p>Aquera formacion especifica (de quasiben 200 òras dens la maqueta globala) qu'a per tòca de v'amiar a obtiéner lo CRPE especiau bilingüe francés-occitan e a'v professionalizar dens lo mestièr d'arregent bilingüe de l'Educacion Nacionala.</p>
+        <p>L'INSPE de Tarba que v'aufreish d'ahortir las vòstas coneishenças en lenga occitana, de preparar e d'analisar estagis en classas bilingüas e de v'iniciar a la didactica especifica deu bilingüisme.</p>
+      </div>
+      <div class="formateurs">
+        <div class="formateur"><span class="avatar">BA</span><span><b>Bernard Arrous</b><small>Professeur d'occitan</small></span></div>
+        <div class="formateur"><span class="avatar">PE</span><span><b>Pierre Escudé</b><small>Professeur des universités · didactique du bilinguisme</small></span></div>
+      </div>
+    </div>
+    <div class="rv">
+      <figure class="video" style="margin:0">
+        <video controls preload="none" poster="videos/poster-occitan.jpg" aria-label="Témoignage d'une étudiante en parcours bilingue occitan">
+          <source src="videos/temoignage-occitan.mp4" type="video/mp4">
+        </video>
+        <figcaption>▶ Elle nous en parle · 2 min</figcaption>
+      </figure>
+      <img src="img/occitan.webp" alt="Cours dans une classe bilingue, drapeau occitan au mur" loading="lazy" style="border-radius:var(--radius);margin-top:16px;aspect-ratio:16/9;object-fit:cover;width:100%">
+    </div>
+  </div>
+</section>
+
+<!-- ===================== DU CHANT ===================== -->
+<section id="chant" class="bg-marine">
+  <div class="wrap">
+    <div class="du-entete rv">
+      <div>
+        <span class="kicker">Diplôme universitaire</span>
+        <h2>DU Pédagogie du chant</h2>
+        <p class="lead">Métiers de la scène · Coaching vocal. Une formation pour développer sa pratique vocale et apprendre à la transmettre.</p>
+        <div class="tags"><span class="tag">2 semestres · 265 h</span><span class="tag">60 ECTS</span><span class="tag">Niveau Bac</span><span class="tag">Présentiel à Tarbes</span><span class="tag">Stage 2 semaines</span></div>
+        <p>Elle favorise l'insertion dans le spectacle vivant, la radio, les chœurs, les associations culturelles, les salles de spectacles, les SMAC, les écoles de musique et conservatoires…</p>
+        <a class="btn rouge" href="https://inspe.univ-toulouse.fr" target="_blank" rel="noopener">Candidater sur le site de l'INSPE</a>
+      </div>
+      <img class="du-photo" src="img/chant-piano.webp" alt="Séance de chant accompagnée au piano" loading="lazy">
+    </div>
+
+    <div class="du-grille">
+      <div class="carte rv"><h3>Compétences visées</h3><ul>
+        <li>Techniques vocales : lyrique, chanson, gospel, traditionnel, jazz</li>
+        <li>Interprétation et présence scénique</li>
+        <li>Appareil phonatoire, préservation de la voix</li>
+        <li>Accompagnement au clavier, direction de chœur</li>
+        <li>Prise de son, enregistrement, son amplifié</li>
+        <li>Art dramatique et expression corporelle</li></ul></div>
+      <div class="carte rv"><h3>Pour qui ?</h3><ul>
+        <li>Tous publics, niveau Bac</li>
+        <li>De préférence avec une expérience de chanteur</li>
+        <li>Intermittents du spectacle</li>
+        <li>Enseignants en école de musique (avec ou sans DEM), dumistes</li>
+        <li>Personnels des scènes de musiques actuelles</li></ul>
+        <p style="margin:12px 0 0"><strong>Évaluation :</strong> contrôle continu.</p></div>
+      <div class="carte rv"><h3>Débouchés</h3><ul>
+        <li>Coach vocal</li>
+        <li>Animateur musical ou scénique (groupes vocaux amateurs, enfants, adultes)</li>
+        <li>Professeur en structures musicales</li>
+        <li>Chanteur·se soliste, choriste</li></ul></div>
+    </div>
+
+    <details class="ue rv">
+      <summary>Semestre 1 <span>143 h · 30 ECTS</span></summary>
+      <div class="table-scroll"><table>
+        <thead><tr><th>UE</th><th>Intitulé</th><th>Heures</th><th>ECTS</th></tr></thead>
+        <tbody>
+          <tr><td>01</td><td>Pratique musicale (accompagnement piano, direction chorale)</td><td class="n">25</td><td class="n">2</td></tr>
+          <tr><td>02</td><td>Techniques vocales 1</td><td class="n">25</td><td class="n">8</td></tr>
+          <tr><td>03</td><td>Musique &amp; TICE : utilisation de l'informatique</td><td class="n">25</td><td class="n">2</td></tr>
+          <tr><td>04</td><td>Chanson française</td><td class="n">25</td><td class="n">8</td></tr>
+          <tr><td>05</td><td>Chanson anglo-saxonne</td><td class="n">25</td><td class="n">8</td></tr>
+          <tr><td>06</td><td>Prise de son, diffusion du son (SMAC La Gespe, Tarbes) · Technique chantée amplifiée</td><td class="n">18</td><td class="n">2</td></tr>
+        </tbody></table></div>
+    </details>
+    <details class="ue rv">
+      <summary>Semestre 2 <span>122 h · 30 ECTS</span></summary>
+      <div class="table-scroll"><table>
+        <thead><tr><th>UE</th><th>Intitulé</th><th>Heures</th><th>ECTS</th></tr></thead>
+        <tbody>
+          <tr><td>07</td><td>Coaching vocal : l'écoute de l'enseignant · Art dramatique et lyrique</td><td class="n">25</td><td class="n">2</td></tr>
+          <tr><td>08</td><td>Techniques vocales 2</td><td class="n">25</td><td class="n">5</td></tr>
+          <tr><td>09</td><td>Préparation du spectacle final (création de chansons, polyphonie, transmission…)</td><td class="n">12</td><td class="n">8</td></tr>
+          <tr><td>10</td><td>Préparation du spectacle final (suite)</td><td class="n">25</td><td class="n">5</td></tr>
+          <tr><td>11</td><td>Musique improvisée (traditionnelle, gospel, jazz…) · Expression corporelle et scénique</td><td class="n">25</td><td class="n">2</td></tr>
+          <tr><td>12</td><td>Stage (mise en œuvre et suivi)</td><td class="n">10</td><td class="n">8</td></tr>
+        </tbody></table></div>
+    </details>
+
+    <div class="equipe rv" style="margin-bottom:0">
+      <div class="membre"><small>Responsable du parcours</small><b>Christian Crozes</b><a href="mailto:christian.crozes@univ-tlse2.fr">christian.crozes@univ-tlse2.fr</a></div>
+      <div class="membre"><small>Responsable du parcours</small><b>Henri Gonzales Martin</b><a href="mailto:henri.gonzalez@univ-tlse2.fr">henri.gonzalez@univ-tlse2.fr</a></div>
+      <div class="membre"><small>Secrétariat</small><b>Marie Brocqua</b><a href="mailto:marie.brocqua@univ-tlse2.fr">marie.brocqua@univ-tlse2.fr</a><br><a href="tel:+33562252274">05 62 25 22 74</a></div>
+      <div class="membre"><small>Secrétariat</small><b>Séverine Ducez</b><a href="mailto:severine.ducez@univ-tlse2.fr">severine.ducez@univ-tlse2.fr</a><br><a href="tel:+33562442332">05 62 44 23 32</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== VISITE DU CAMPUS ===================== -->
+<section id="campus">
+  <div class="wrap">
+    <div class="rv">
+      <span class="kicker">Visite guidée</span>
+      <h2>Bienvenue sur le site de Tarbes</h2>
+      <p class="lead">Entrez ! <span lang="oc">Entratz !</span> Déplacez-vous à 360° dans les locaux comme si vous y étiez, puis découvrez chaque lieu en détail.</p>
+    </div>
+
+    <!-- Visite immersive 360° -->
+    <div class="v360 rv">
+      <div class="v360-ecran">
+        <div id="pano" aria-label="Vue panoramique à 360 degrés"></div>
+        <span class="v360-titre" id="v360-titre">Devant l'INSPE</span>
+        <div class="v360-fleches">
+          <button id="v360-prec" aria-label="Lieu précédent">‹</button>
+          <button id="v360-suiv" aria-label="Lieu suivant">›</button>
+        </div>
+        <span class="v360-aide" id="v360-aide">Faites glisser pour regarder autour de vous · molette pour zoomer</span>
+        <button class="v360-demarrer" id="v360-go" style="background-image:url(img360/inspe_tarbes-mini.jpg)">
+          <span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="12" rx="10" ry="4"/><path d="M12 2a4 10 0 0 1 0 20"/></svg>Lancer la visite 360°</span>
+        </button>
+      </div>
+      <div class="v360-liste" id="v360-liste" aria-label="Choisir un lieu"></div>
+    </div>
+
+    <h3 class="rv" style="font-size:1.5rem">Les lieux en détail</h3>
+    <div class="visite-nav" role="tablist" aria-label="Étapes de la visite" id="visite-nav"></div>
+    <div id="visite-lieu" class="lieu" aria-live="polite"></div>
+  </div>
+</section>
+
+<!-- ===================== VIE ÉTUDIANTE ===================== -->
+<section id="vie" class="bg-blanc">
+  <div class="wrap">
+    <div class="duo">
+      <div class="rv">
+        <span class="kicker">Vie étudiante</span>
+        <h2>Un lieu de formation familial</h2>
+        <p class="lead">Un site à taille humaine où l'on se connaît, s'entraide et construit des projets ensemble.</p>
+        <ul class="liste-check">
+          <li><strong>Un BDE actif</strong> : le Becarut anime la vie de promo</li>
+          <li><strong>Des projets citoyens et culturels</strong> autour d'un thème de promo annuel</li>
+          <li><strong>Du sport</strong> avec l'association sportive universitaire</li>
+          <li><strong>Un campus partagé</strong> avec l'IUT et l'ENI de Tarbes</li>
+        </ul>
+        <p style="display:flex;align-items:center;gap:14px;margin-top:20px">
+          <img src="img/becarut.png" alt="Logo du BDE Becarut" style="width:74px;border-radius:12px">
+          <a class="btn contour" href="https://www.instagram.com/inspetop_tarbes/" target="_blank" rel="noopener">Suivre @inspetop_tarbes</a>
+        </p>
+      </div>
+      <div class="rv">
+        <figure class="video" style="margin:0">
+          <video controls preload="none" poster="videos/poster-campus.jpg" aria-label="Témoignages d'étudiantes sur la vie au site de Tarbes">
+            <source src="videos/temoignage-campus.mp4" type="video/mp4">
+          </video>
+          <figcaption>▶ Elles en parlent · 2 min</figcaption>
+        </figure>
+      </div>
+    </div>
+    <div class="galerie rv" id="galerie"></div>
+  </div>
+</section>
+
+<!-- ===================== ACCÈS ===================== -->
+<section id="acces">
+  <div class="wrap">
+    <div class="rv">
+      <span class="kicker">Venir à l'INSPE</span>
+      <h2>Une situation géographique idéale</h2>
+      <p class="lead">Entre ville et montagne, le site est facile d'accès, quel que soit votre moyen de transport.</p>
+    </div>
+    <div class="acces" style="margin-top:28px">
+      <div class="acces-liste rv">
+        <div class="acces-item"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.3-7-11a7 7 0 0 1 14 0c0 4.7-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span><span><b>57 avenue d'Azereix, Tarbes</b><small>BP 20040 · 65950 Tarbes cedex 9 — au pied des Pyrénées</small></span></div>
+        <div class="acces-item"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 17h14l-1.5-6h-11zM7 17v2M17 17v2M6.5 11 8 6h8l1.5 5"/></svg></span><span><b>En voiture</b><small>Autoroute A64, sortie 12</small></span></div>
+        <div class="acces-item"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="3" width="14" height="14" rx="3"/><path d="M5 11h14M8 21l1-4M16 21l-1-4"/></svg></span><span><b>En bus</b><small>Lignes T2 et T3 du réseau TLP Mobilités</small></span></div>
+        <div class="acces-item"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="6" cy="16" r="3.5"/><circle cx="18" cy="16" r="3.5"/><path d="M6 16l4-7h5l3 7M9 6h3"/></svg></span><span><b>À vélo</b><small>Station de vélos électriques en libre-service sur le campus</small></span></div>
+        <div class="acces-item"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 20l6-11 4 6 3-4 5 9z"/></svg></span><span><b>Un environnement privilégié</b><small>Vue sur les Pyrénées, espaces verts, aires de sport en plein air</small></span></div>
+      </div>
+      <div class="carte-map rv">
+        <iframe title="Plan d'accès au site de Tarbes de l'INSPE" loading="lazy"
+          src="https://www.openstreetmap.org/export/embed.html?bbox=0.0384%2C43.2207%2C0.0584%2C43.2307&amp;layer=mapnik&amp;marker=43.2256543%2C0.0484493"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ET APRÈS ===================== -->
+<section id="apres" class="bg-blanc">
+  <div class="wrap">
+    <div class="rv">
+      <span class="kicker">Et après ?</span>
+      <h2>Des perspectives variées</h2>
+    </div>
+    <div class="apres" style="margin-top:28px">
+      <div class="carte rv"><h3><small>J'ai le concours</small>Évoluer dans sa carrière</h3><ul class="liste-check">
+        <li>Changer de niveau d'enseignement, d'école</li>
+        <li>Enseigner à l'étranger</li>
+        <li>Devenir directeur, maître formateur, ERUN ou conseiller pédagogique</li>
+        <li>Se spécialiser (SEGPA, ULIS…)</li>
+        <li>Passer le concours d'inspecteur de l'Éducation nationale (IEN)</li></ul></div>
+      <div class="carte b rv"><h3><small>Je n'ai pas le concours</small>D'autres voies possibles</h3><ul class="liste-check">
+        <li>Poursuivre en master et repasser le concours</li>
+        <li>Enseigner à l'étranger ou en filière professionnelle</li>
+        <li>Passer le concours de CPE</li>
+        <li>Devenir éducateur spécialisé</li>
+        <li>Devenir AED, AESH, ATSEM…</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CONTACT ===================== -->
+<section id="contact" class="bg-marine">
+  <div class="wrap">
+    <div class="rv">
+      <span class="kicker">Contact</span>
+      <h2>Une administration à votre écoute</h2>
+      <p class="lead">N'hésitez pas à nous contacter si vous avez des questions ! <span lang="oc">Adishatz !</span></p>
+    </div>
+    <div class="equipe rv">
+      <div class="membre"><small>Responsable de site · coordinateur pédagogique</small><b>Laurent Falcette</b><a href="mailto:laurent.falcette@univ-tlse2.fr">laurent.falcette@univ-tlse2.fr</a></div>
+      <div class="membre"><small>Secrétaire pédagogique</small><b>Magalie Verdoux</b><a href="mailto:magalie.verdoux@univ-tlse2.fr">magalie.verdoux@univ-tlse2.fr</a></div>
+      <div class="membre"><small>Responsable administrative et financière</small><b>Sandrine Descatoire</b><a href="mailto:sandrine.descatoire@univ-tlse2.fr">sandrine.descatoire@univ-tlse2.fr</a></div>
+      <div class="membre"><small>Secrétaire administrative et financière</small><b>Christelle Marques</b><a href="mailto:christelle.marques@univ-tlse2.fr">christelle.marques@univ-tlse2.fr</a></div>
+    </div>
+    <div class="liens rv">
+      <a href="tel:+33562442330"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>05 62 44 23 30</a>
+      <a href="https://www.instagram.com/inspetop_tarbes/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>Instagram</a>
+      <a href="https://inspe.univ-toulouse.fr" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>INSPE Toulouse Occitanie-Pyrénées</a>
+      <a href="https://www.devenirenseignant.gouv.fr/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5V5a2 2 0 0 1 2-2h14v16H6a2 2 0 0 0-2 2zM20 19v3H6"/></svg>Devenir enseignant</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="logos">
+      <img src="img/logo-inspe.png" alt="INSPE Toulouse Occitanie-Pyrénées">
+      <img src="img/logo-ut2j.png" alt="Université Toulouse Jean Jaurès">
+      <img src="img/logo-ut.png" alt="Université de Toulouse">
+    </div>
+    <p style="margin:0">INSPE TOP · Site de Tarbes · 57 avenue d'Azereix, 65000 Tarbes<br>Informations indicatives — se référer aux textes officiels.</p>
+  </div>
+</footer>
+
+<button class="icon-btn" id="haut" aria-label="Revenir en haut de page">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M6 15l6-6 6 6"/></svg>
+</button>
+
+<dialog class="lb" id="lb" aria-label="Photo agrandie">
+  <button class="fermer" aria-label="Fermer">×</button>
+  <img src="" alt="">
+  <p></p>
+</dialog>
+
+<script>
+/* ============================================================
+   Données : étapes du parcours
+   ============================================================ */
+const ETAPES = [
+  { titre:"Baccalauréat", texte:"Toutes les séries permettent d'accéder à la Licence Professorat des écoles. Candidature via <strong>Parcoursup</strong>. Un profil polyvalent et curieux est un atout pour ce métier." },
+  { titre:"Licence Professorat des écoles (L1 → L3)", texte:"Nouvelle licence ouverte dès la rentrée 2026 (candidature sur Parcoursup) : 1 570 h de formation, 180 ECTS, savoirs de l'école primaire (70 %), pédagogie, contexte institutionnel et <strong>au moins 10 semaines de stage</strong> en école. Elle prépare directement au concours." },
+  { titre:"Le CRPE en fin de licence", texte:"Le concours est accessible dès l'inscription en L3 : <strong>épreuves écrites d'admissibilité</strong> (français-maths, autres domaines) puis <strong>épreuves orales d'admission</strong> (exposé disciplinaire, entretien de motivation). La licence doit être validée pour bénéficier du concours.", crpe:true },
+  { titre:"Master Enseignement et Éducation (M2E)", texte:"Lauréat du concours, vous entrez en master pour 2 ans, en alternance école / INSPE. <strong>M1 : élève fonctionnaire</strong>, ≈ 1 400 € nets/mois, 12 semaines de stage. <strong>M2 : fonctionnaire stagiaire</strong>, ≈ 1 800 € nets/mois, en classe à mi-temps." },
+  { titre:"Professeur des écoles titulaire", texte:"Titularisé à l'issue du master, vous êtes rémunéré environ <strong>2 100 € nets/mois</strong> en début de carrière, avec un engagement de servir de 4 ans. Une carrière riche en évolutions vous attend (voir « Et après ? »)." }
+];
+
+/* ============================================================
+   Données : visite guidée du campus
+   ============================================================ */
+const LIEUX = [
+  { nom:"Le site", pano:"inspe_tarbes", photos:[["facade","Le bâtiment de l'INSPE"],["panorama","L'entrée du site"],["accueil-etudiante","Bienvenue à l'INSPE !"]],
+    titre:"Le site de Tarbes de l'INSPE TOP",
+    texte:"Situé au pied des Pyrénées, en plein cœur d'un campus universitaire dynamique, le site délivre la Licence Professorat des écoles et le Master M2E, prépare au CRPE et au CRPE bilingue occitan, et accueille le DU Pédagogie du chant.",
+    liste:["Préparation au CRPE français et bilingue occitan","Cours en présentiel + stages en écoles","Langues : français, occitan, anglais, espagnol"] },
+  { nom:"Salles de cours", pano:"amphi_gavarnie", photos:[["amphi","Le grand amphithéâtre"],["salle-arts","Une salle spécialisée"],["cours1","Travail en groupes"]],
+    titre:"Des salles agréables et spacieuses",
+    texte:"Des espaces pensés pour se former au métier : travail collaboratif, salles équipées et accessibles à tous.",
+    liste:["Un grand amphithéâtre de 120 places","Salles dédiées : arts, sciences, musique, numérique…","Écrans numériques interactifs et vidéoprojecteurs","Ascenseur et écran d'accueil pour s'orienter"] },
+  { nom:"Bibliothèque", pano:"mediatheque1", photos:[["bibliotheque","L'espace bibliothèque"],["bibliotheque2","Albums et jeux pour la classe"]],
+    titre:"L'espace bibliothèque",
+    texte:"C'est l'espace préféré des étudiants ! Chercher, travailler, collaborer, emprunter…",
+    liste:["Préparer le concours","Rédiger son mémoire de master","Préparer la classe : albums de littérature de jeunesse, manuels, boîtes de jeux…","Se détendre"] },
+  { nom:"Numérique", pano:"salle_info", photos:[["classe-numerique","Formation au numérique"],["robot","Programmer un robot"],["numerique","Créer des ressources"]],
+    titre:"Développer ses compétences numériques",
+    texte:"Les compétences numériques sont essentielles au métier et pour préparer les citoyens de demain. Vous êtes formés pour obtenir une certification.",
+    liste:["Utiliser le numérique pour interagir et se former","Produire et adapter des ressources pédagogiques","Concevoir et scénariser des situations d'apprentissage","Inclure, différencier, rendre accessible","Développer les compétences des élèves (CRCN / Pix)"] },
+  { nom:"Restauration", pano:"cafeteria", photos:[["terrasse","Terrasse du campus"],["parc","Tables de pique-nique"],["pingpong","Pause en plein air"]],
+    titre:"Le coin de la convivialité",
+    texte:"Une cafétéria dans les locaux de l'INSPE, accessible toute la journée : distributeurs de café, boissons, salades, confiseries et micro-ondes à disposition.",
+    liste:["Restaurant universitaire du CROUS : repas chaud complet","La Paillote de l'IUT : en-cas sur place ou à emporter","Tables de pique-nique pour profiter du soleil"] },
+  { nom:"Sport", pano:"gymnase2", photos:[["eps","L'EPS dans la formation"],["fitness","Agrès en plein air"],["eps-photo","Espace sportif du campus"]],
+    titre:"Les pratiques sportives",
+    texte:"Des infrastructures modernes et l'association sportive universitaire pour vivre des expériences variées. En master, l'EPS se vit aussi en formation : danse de création, arts du cirque, hockey en salle…",
+    liste:["Sports collectifs, escalade, badminton","Musculation, danses, sports de combat","Sorties ski au pied des Pyrénées"] },
+  { nom:"Logement", photos:[["logement","Résidence étudiante"],["residence","Logements à proximité"],["pavillon","Sur le campus"]],
+    titre:"Une offre de logements adaptée",
+    texte:"Se loger facilement à quelques pas des cours.",
+    liste:["Logements réservés aux boursiers au cœur du campus","3 studios de l'INSPE réservés à ses étudiants","Nombreux logements étudiants à proximité"] },
+  { nom:"Accès", pano:"ext_ouest", photos:[["pyrenees","Vue sur les Pyrénées"],["velos","Vélos électriques"],["plan-bus","Réseau de bus T2 / T3"]],
+    titre:"Un accès facile",
+    texte:"Au pied des Pyrénées, le campus est bien desservi.",
+    liste:["A64 – sortie 12","Bus : lignes T2 et T3","Vélos électriques en libre-service"], lien:"#acces" }
+];
+
+/* ============================================================
+   Données : panoramas 360° (img360/<id>.jpg + vignette <id>-mini.jpg)
+   ============================================================ */
+const PANOS = [
+  ["Extérieurs", [["inspe_tarbes","Devant l'INSPE"],["entree_inspe","L'entrée du bâtiment"],["ext_est","Le patio, côté est"],["ext_ouest","L'allée, côté ouest"]]],
+  ["Accueil", [["hall_accueil","Le hall d'accueil"],["administration","L'administration"],["escalier_etage","L'escalier vers l'étage"],["etage_couloir","Le couloir de l'étage"]]],
+  ["Salles de cours", [["amphi_gavarnie","L'amphithéâtre Gavarnie"],["salle_francais","Salle de français"],["salle_arts","Salle d'arts plastiques"],["salle_techno","Salle de sciences et technologie"],["salle_info","Salle informatique"]]],
+  ["Médiathèque", [["mediatheque1","Médiathèque : l'accueil"],["mediatheque2","Médiathèque : espace de travail"],["mediatheque3","Médiathèque : les nouveautés"]]],
+  ["Cafétéria", [["couloir_cafet","Le couloir de la cafétéria"],["cafeteria","La cafétéria"]]],
+  ["Gymnase", [["gymnase1","Gymnase : salle de musculation"],["gymnase2","Gymnase : la grande salle"],["gymnase3","Gymnase : le mur d'escalade"]]]
+];
+const PANO_LISTE = PANOS.flatMap(([, l]) => l);
+
+/* ============================================================
+   Données : galerie vie étudiante
+   ============================================================ */
+const GALERIE = [
+  ["promo","La promo","h"],["bde","Le BDE en action","l"],["theme-promo","Thème de promo 2025-26 : être un citoyen aujourd'hui","h"],
+  ["atelier","Ateliers pratiques",""],["sciences","Sciences en classe",""],["robot-eleves","Robotique avec les élèves","l"],["campus-iut","Le campus universitaire","l"]
+];
+
+/* ============ Utilitaires ============ */
+const $ = (s, c=document) => c.querySelector(s);
+const $$ = (s, c=document) => [...c.querySelectorAll(s)];
+const img = n => `img/${n}.webp`;
+
+/* ============ Thème clair / sombre ============ */
+const racine = document.documentElement;
+try { const t = localStorage.getItem('theme'); if (t) racine.dataset.theme = t; } catch(e) {}
+$('#theme').addEventListener('click', () => {
+  const sombre = racine.dataset.theme ? racine.dataset.theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+  racine.dataset.theme = sombre ? 'light' : 'dark';
+  try { localStorage.setItem('theme', racine.dataset.theme); } catch(e) {}
+});
+
+/* ============ Menu mobile ============ */
+const menu = $('#menu'), burger = $('#burger');
+burger.addEventListener('click', () => {
+  const ouvert = menu.classList.toggle('ouvert');
+  burger.setAttribute('aria-expanded', ouvert);
+});
+$$('a', menu).forEach(a => a.addEventListener('click', () => { menu.classList.remove('ouvert'); burger.setAttribute('aria-expanded', false); }));
+
+/* ============ Frise du parcours ============ */
+function afficheEtape(i){
+  $$('.etape').forEach((b, j) => { b.classList.toggle('on', i===j); b.setAttribute('aria-selected', i===j); });
+  const e = ETAPES[i], d = $('#detail-etape');
+  d.className = 'detail-etape panneau' + (e.crpe ? ' crpe' : '');
+  d.innerHTML = `<h3>${e.titre}</h3><p style="margin:0">${e.texte}</p>`;
+}
+$$('.etape').forEach(b => b.addEventListener('click', () => afficheEtape(+b.dataset.etape)));
+afficheEtape(0);
+
+/* ============ Onglets formations ============ */
+$$('.onglet').forEach(t => t.addEventListener('click', () => {
+  $$('.onglet').forEach(o => { o.setAttribute('aria-selected', o===t); $('#'+o.getAttribute('aria-controls')).hidden = o!==t; });
+}));
+
+/* ============ Bascule français / occitan ============ */
+$$('.bascule-langue button').forEach(b => b.addEventListener('click', () => {
+  $$('.bascule-langue button').forEach(x => x.setAttribute('aria-pressed', x===b));
+  $$('[data-texte]').forEach(t => t.hidden = t.dataset.texte !== b.dataset.langue);
+}));
+
+/* ============ Visite guidée ============ */
+const nav = $('#visite-nav');
+LIEUX.forEach((l, i) => {
+  const b = document.createElement('button');
+  b.setAttribute('role','tab'); b.innerHTML = `<span class="n">${i+1}</span>${l.nom}`;
+  b.addEventListener('click', () => afficheLieu(i, true));
+  nav.appendChild(b);
+});
+function afficheLieu(i, scroll){
+  const l = LIEUX[i];
+  $$('button', nav).forEach((b, j) => b.setAttribute('aria-selected', i===j));
+  if (scroll) $$('button', nav)[i].scrollIntoView({block:'nearest', inline:'center', behavior:'smooth'});
+  const mos = l.photos.map(([n, c]) => `<button data-lb="${n}" data-cap="${c}" aria-label="Agrandir : ${c}"><img src="${img(n)}" alt="${c}" loading="lazy"></button>`).join('');
+  $('#visite-lieu').innerHTML = `
+    <div class="mosaique ${l.photos.length===2?'deux':''} panneau">${mos}</div>
+    <div class="lieu-txt panneau">
+      <span class="kicker">Étape ${i+1} / ${LIEUX.length}</span>
+      <h3 style="font-size:1.6rem">${l.titre}</h3>
+      <p>${l.texte}</p>
+      <div class="carte"><ul class="liste-check">${l.liste.map(x=>`<li>${x}</li>`).join('')}</ul></div>
+      ${l.pano ? `<button class="btn-360" data-pano="${l.pano}">◎ Voir ce lieu en 360°</button>` : ''}
+      ${l.lien ? `<p style="margin-top:14px"><a class="btn contour" href="${l.lien}">Voir le plan d'accès</a></p>` : ''}
+      <div class="lieu-nav">
+        <button class="btn contour" ${i===0?'disabled style="opacity:.35"':''} data-dir="-1">← Précédent</button>
+        <button class="btn marine" ${i===LIEUX.length-1?'disabled style="opacity:.35"':''} data-dir="1">Suivant →</button>
+      </div>
+    </div>`;
+  $$('[data-dir]', $('#visite-lieu')).forEach(b => b.addEventListener('click', () => afficheLieu(i + +b.dataset.dir, true)));
+}
+afficheLieu(0, false);
+
+/* ============ Visite immersive 360° (Pannellum) ============ */
+let viewer = null, panoCourant = PANO_LISTE[0][0];
+const liste360 = $('#v360-liste');
+liste360.innerHTML = PANOS.map(([groupe, l]) =>
+  `<div class="v360-groupe">${groupe}</div>` +
+  l.map(([id, nom]) => `<button data-scene="${id}"><img src="img360/${id}-mini.jpg" alt="" loading="lazy">${nom}</button>`).join('')
+).join('');
+
+/* Mode de secours : fichier ouvert en local (file://) ou Pannellum indisponible.
+   Le navigateur interdit alors les textures WebGL → panorama « cylindrique »
+   qu'on fait glisser à la souris / au doigt, avec défilement automatique. */
+const MODE_LOCAL = location.protocol === 'file:';
+let secours = null;
+function initSecours(scene){
+  const el = $('#pano');
+  el.style.cssText = 'cursor:grab;background-repeat:repeat-x;background-size:auto 150%;background-position:0 50%;touch-action:pan-y';
+  let x = 0, glisse = false, dx0 = 0, x0 = 0, pause = 0;
+  const applique = () => el.style.backgroundPositionX = x + 'px';
+  const tour = () => { if (!glisse && performance.now() > pause) { x -= .4; applique(); } requestAnimationFrame(tour); };
+  el.addEventListener('pointerdown', e => { glisse = true; dx0 = e.clientX; x0 = x; el.setPointerCapture(e.pointerId); el.style.cursor = 'grabbing'; $('#v360-aide').style.opacity = 0; });
+  el.addEventListener('pointermove', e => { if (glisse) { x = x0 + (e.clientX - dx0); applique(); } });
+  el.addEventListener('pointerup', () => { glisse = false; el.style.cursor = 'grab'; pause = performance.now() + 4000; });
+  secours = id => { el.style.backgroundImage = `url(img360/${id}.jpg)`; x = 0; applique(); majPano(id); };
+  $('#v360-aide').textContent = 'Faites glisser pour regarder autour de vous';
+  $('#v360-go').remove();
+  secours(scene);
+  requestAnimationFrame(tour);
+}
+
+function initViewer(scene){
+  if (MODE_LOCAL) { initSecours(scene); return; }
+  if (!window.pannellum && !window.pannellumAttente) {
+    // CDN injoignable après 6 s → mode de secours
+    window.pannellumAttente = setTimeout(() => { if (!window.pannellum && !secours) initSecours(scene); }, 6000);
+  }
+  if (secours) return;
+  if (!window.pannellum) { setTimeout(() => initViewer(scene), 200); return; }
+  const scenes = {};
+  PANO_LISTE.forEach(([id, nom]) => scenes[id] = { type: 'equirectangular', panorama: `img360/${id}.jpg`, hfov: 100, pitch: -5 });
+  viewer = pannellum.viewer('pano', {
+    default: { firstScene: scene, sceneFadeDuration: 700, autoLoad: true, autoRotate: -2, autoRotateInactivityDelay: 4000, showControls: true, compass: false },
+    scenes, strings: { loadingLabel: 'Chargement…' }
+  });
+  viewer.on('scenechange', majPano);
+  viewer.on('mousedown', () => $('#v360-aide').style.opacity = 0);
+  viewer.on('touchstart', () => $('#v360-aide').style.opacity = 0);
+  $('#v360-go').remove();
+  majPano(scene);
+}
+function majPano(id){
+  panoCourant = id;
+  const nom = PANO_LISTE.find(p => p[0] === id)[1];
+  $('#v360-titre').textContent = nom;
+  $$('button', liste360).forEach(b => {
+    const on = b.dataset.scene === id;
+    b.setAttribute('aria-current', on);
+    // fait défiler uniquement la liste (pas la page)
+    if (on) liste360.scrollTo({ top: b.offsetTop - liste360.offsetTop - 40, left: b.offsetLeft - liste360.offsetLeft - 20, behavior: 'smooth' });
+  });
+}
+function allerPano(id){
+  if (secours) secours(id);
+  else if (!viewer) initViewer(id);
+  else if (id !== panoCourant) viewer.loadScene(id);
+}
+$('#v360-go').addEventListener('click', () => initViewer(panoCourant));
+liste360.addEventListener('click', e => { const b = e.target.closest('[data-scene]'); if (b) allerPano(b.dataset.scene); });
+const decale = d => { const i = PANO_LISTE.findIndex(p => p[0] === panoCourant); allerPano(PANO_LISTE[(i + d + PANO_LISTE.length) % PANO_LISTE.length][0]); };
+$('#v360-prec').addEventListener('click', () => decale(-1));
+$('#v360-suiv').addEventListener('click', () => decale(1));
+// Boutons « Voir ce lieu en 360° » des étapes de la visite
+document.addEventListener('click', e => {
+  const b = e.target.closest('[data-pano]');
+  if (!b) return;
+  allerPano(b.dataset.pano);
+  $('.v360').scrollIntoView({behavior:'smooth', block:'center'});
+});
+majPano(panoCourant);
+
+/* ============ Galerie ============ */
+$('#galerie').innerHTML = GALERIE.map(([n, c, cl]) =>
+  `<button class="${cl}" data-lb="${n}" data-cap="${c}" aria-label="Agrandir : ${c}"><img src="${img(n)}" alt="${c}" loading="lazy"><span>${c}</span></button>`).join('');
+
+/* ============ Lightbox ============ */
+const lb = $('#lb');
+document.addEventListener('click', e => {
+  const b = e.target.closest('[data-lb]');
+  if (!b) return;
+  $('img', lb).src = img(b.dataset.lb); $('img', lb).alt = b.dataset.cap; $('p', lb).textContent = b.dataset.cap;
+  lb.showModal();
+});
+$('.fermer', lb).addEventListener('click', () => lb.close());
+lb.addEventListener('click', e => { if (e.target === lb) lb.close(); });
+
+/* ============ Vidéos : une seule à la fois ============ */
+$$('video').forEach(v => {
+  v.addEventListener('play', () => { v.closest('.video').classList.add('joue'); $$('video').forEach(o => o!==v && o.pause()); });
+});
+
+/* ============ Apparition au scroll + compteurs ============ */
+const obs = new IntersectionObserver(es => es.forEach(e => {
+  if (!e.isIntersecting) return;
+  e.target.classList.add('vu'); obs.unobserve(e.target);
+  $$('[data-compte]', e.target).forEach(compte);
+}), {threshold:.12});
+$$('.rv').forEach(el => obs.observe(el));
+function compte(el){
+  const fin = +el.dataset.compte, pre = el.dataset.prefixe || '', t0 = performance.now();
+  const pas = t => { const p = Math.min(1, (t - t0) / 1200); el.textContent = pre + Math.round(fin * (1 - Math.pow(1-p, 3))); if (p<1) requestAnimationFrame(pas); };
+  requestAnimationFrame(pas);
+}
+
+/* ============ Menu actif + bouton haut ============ */
+const sections = $$('main section[id]');
+addEventListener('scroll', () => {
+  $('#haut').classList.toggle('visible', scrollY > 700);
+  let cur = '';
+  sections.forEach(s => { if (scrollY + 120 >= s.offsetTop) cur = s.id; });
+  $$('a', menu).forEach(a => a.classList.toggle('actif', a.getAttribute('href') === '#'+cur));
+}, {passive:true});
+$('#haut').addEventListener('click', () => scrollTo({top:0, behavior:'smooth'}));
+</script>
+</body>
+</html>
