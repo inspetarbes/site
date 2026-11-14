@@ -221,6 +221,15 @@ details.lpe-plus summary::after{content:"+";color:var(--accent);font-size:1.4rem
 details.lpe-plus[open] summary::after{content:"–"}
 details.lpe-plus>div{padding:0 20px 18px}
 
+/* Encart « profil attendu » (Licence PE) */
+.profil{margin-top:22px;background:var(--vert-soft);border:1px solid var(--line);border-radius:var(--radius);padding:22px 24px}
+.profil h3{margin-bottom:14px}
+.profil ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.profil li{background:var(--paper);border-radius:12px;padding:14px;border-top:4px solid var(--vert-fonce)}
+.profil b{display:block;font-family:var(--slab);color:var(--titre);margin-bottom:4px}
+.profil span{font-size:.9rem;color:var(--gris)}
+@media (max-width:1000px){.profil ul{grid-template-columns:repeat(auto-fit,minmax(180px,1fr))}}
+
 /* Onglets dépliables du DU chant */
 .du-onglets{margin-top:36px}
 .ue-corps{padding:0 20px 18px;color:#e8eef6}
@@ -558,6 +567,18 @@ dialog.lb .fermer{position:fixed;top:16px;right:16px;background:#fff;color:#000;
         <div class="carte"><span class="kicker">Les formateurs</span><h3>Des équipes mixtes</h3><p style="margin:0">Enseignants-chercheurs, enseignants du 1<sup>er</sup> et du 2<sup>nd</sup> degré, enseignants en temps partagé entre leur école et l'université, et professeurs des écoles maîtres formateurs.</p></div>
         <div class="carte"><span class="kicker">Langue régionale</span><h3>Option occitan</h3><p style="margin:0">Pour préparer le CRPE bilingue français-occitan : langue et culture occitanes et initiation à la didactique du bilinguisme. <button type="button" class="lien-video" data-video="occitan">▶ En savoir plus</button></p></div>
         <div class="carte"><span class="kicker">Où se former ?</span><h3>8 sites dans l'académie</h3><p style="margin:0">Albi, Auch, Cahors, Foix, Montauban, Rodez, <strong>Tarbes</strong>, Toulouse. 312 places en L1 dans l'académie, dont <strong>30 à Tarbes</strong>.</p></div>
+      </div>
+
+      <!-- Profil attendu -->
+      <div class="profil">
+        <h3>Le profil attendu pour réussir en LPE</h3>
+        <ul>
+          <li><b>Polyvalence</b><span>Goût pour toutes les disciplines (français, maths, sciences, arts…).</span></li>
+          <li><b>Rigueur</b><span>Organisation, autonomie et régularité dans le travail.</span></li>
+          <li><b>Engagement</b><span>Assiduité et forte motivation pour l'enseignement.</span></li>
+          <li><b>Posture</b><span>Écoute, bienveillance et aisance relationnelle.</span></li>
+          <li><b>Réflexivité</b><span>Capacité à se remettre en question et à progresser.</span></li>
+        </ul>
       </div>
 
       <!-- Candidature Parcoursup -->
