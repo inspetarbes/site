@@ -222,9 +222,15 @@ details.lpe-plus[open] summary::after{content:"–"}
 details.lpe-plus>div{padding:0 20px 18px}
 
 /* ============ Visite 360° ============ */
-.v360{display:grid;grid-template-columns:1fr 300px;gap:16px;margin:30px 0 56px}
-@media (max-width:900px){.v360{grid-template-columns:1fr}}
-.v360-ecran{position:relative;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);background:#0f1f33;aspect-ratio:16/9;min-height:320px}
+.v360{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:16px;margin:30px 0 56px}
+.v360>*{min-width:0}
+@media (max-width:900px){.v360{grid-template-columns:minmax(0,1fr)}}
+/* largeur imposée par la grille ; la hauteur découle du format (pas de min-height qui élargirait le cadre) */
+.v360-ecran{position:relative;width:100%;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);background:#0f1f33;aspect-ratio:16/9}
+@media (max-width:600px){
+  .v360-ecran{aspect-ratio:4/5}   /* format plus haut sur téléphone */
+  .v360-demarrer span{font-size:.95rem;padding:12px 18px}
+}
 #pano{position:absolute;inset:0}
 .v360-titre{position:absolute;left:14px;bottom:14px;z-index:3;background:rgba(15,31,51,.82);color:#fff;font-weight:700;padding:8px 14px;border-radius:999px;font-size:.92rem;pointer-events:none;backdrop-filter:blur(4px)}
 @media (max-width:640px){.v360-aide{display:none}}
