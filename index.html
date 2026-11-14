@@ -141,7 +141,8 @@ nav.menu a:hover,nav.menu a.actif{background:var(--marine-soft);color:var(--titr
 .video.joue figcaption{opacity:0}
 
 /* ============ Parcours (frise) ============ */
-.frise{display:grid;grid-template-columns:repeat(5,1fr);gap:0;margin:40px 0 20px;position:relative}
+/* align-items:start → tous les cercles sur la même ligne, quelle que soit la hauteur du texte */
+.frise{display:grid;grid-template-columns:repeat(5,1fr);gap:0;margin:40px 0 20px;position:relative;align-items:start}
 .frise::before{content:"";position:absolute;left:5%;right:5%;top:31px;height:4px;background:linear-gradient(90deg,var(--vert),var(--marine),var(--rouge));border-radius:2px}
 .etape{text-align:center;padding:0 8px;position:relative;cursor:pointer;background:none;border:0;color:inherit;font:inherit}
 .etape .rond{width:66px;height:66px;border-radius:50%;margin:0 auto 12px;display:grid;place-items:center;background:var(--paper);border:4px solid var(--marine);font:800 1rem var(--slab);color:var(--titre);transition:.25s}
@@ -161,10 +162,16 @@ nav.menu a:hover,nav.menu a.actif{background:var(--marine-soft);color:var(--titr
   .etape{display:grid;grid-template-columns:66px 1fr;gap:14px;text-align:left;align-items:center;padding:0}
   .etape .rond{margin:0}
 }
-/* En-tête du parcours : texte + vidéo verticale (format téléphone) */
-.parcours-tete{display:grid;grid-template-columns:1fr 260px;gap:clamp(24px,5vw,64px);align-items:center}
-.video-verticale{margin:0;aspect-ratio:9/16;width:100%;max-width:260px;justify-self:end}
-@media (max-width:760px){.parcours-tete{grid-template-columns:1fr}.video-verticale{justify-self:center}}
+/* Parcours : colonne gauche (texte + frise + détail) / colonne droite (vidéo pleine hauteur) */
+.parcours-grille{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:clamp(24px,4vw,48px);align-items:stretch}
+.parcours-gauche{min-width:0}
+/* la vidéo occupe toute la hauteur ; fond turquoise = couleur de fond de la vidéo */
+.video-verticale{margin:0;height:100%;min-height:480px;aspect-ratio:auto;background:#0E9F9A}
+.video-verticale video{background:#0E9F9A}
+@media (max-width:900px){
+  .parcours-grille{grid-template-columns:1fr}
+  .video-verticale{height:auto;min-height:0;aspect-ratio:9/16;width:100%;max-width:300px;justify-self:center}
+}
 
 /* ============ Onglets ============ */
 .onglets{display:flex;gap:8px;flex-wrap:wrap;margin:30px 0 22px}
@@ -446,29 +453,30 @@ dialog.lb .fermer{position:fixed;top:16px;right:16px;background:#fff;color:#000;
 <!-- ===================== PARCOURS ===================== -->
 <section id="parcours" class="bg-blanc">
   <div class="wrap">
-    <div class="parcours-tete rv">
-      <div>
-        <span class="kicker">Réforme 2026</span>
-        <h2>Comment devenir professeur des écoles ?</h2>
-        <p class="lead">Depuis la réforme de la formation des enseignants, le concours (CRPE) se passe <strong>en fin de licence</strong>. Les lauréats entrent ensuite dans un master de 2 ans <strong>rémunéré</strong>.</p>
-        <p class="lead" style="margin:0">Regardez la vidéo en 35 secondes, puis cliquez sur chaque étape de la frise ci-dessous.</p>
+    <div class="parcours-grille">
+      <div class="parcours-gauche">
+        <div class="rv">
+          <span class="kicker">Réforme 2026</span>
+          <h2>Comment devenir professeur des écoles ?</h2>
+          <p class="lead">Depuis la réforme de la formation des enseignants, le concours (CRPE) se passe <strong>en fin de licence</strong>. Les lauréats entrent ensuite dans un master de 2 ans <strong>rémunéré</strong>.</p>
+          <p class="lead" style="margin:0">Regardez la vidéo en 35 secondes, puis cliquez sur chaque étape de la frise.</p>
+        </div>
+      <div class="frise rv" role="tablist" aria-label="Étapes du parcours">
+        <button class="etape on" role="tab" aria-selected="true" data-etape="0"><span class="rond">Bac</span><span><strong>Baccalauréat</strong><small>Entrée à l'université</small></span></button>
+        <button class="etape" role="tab" aria-selected="false" data-etape="1"><span class="rond">L1-L3</span><span><strong>Licence PE</strong><small>3 ans · 180 ECTS</small></span></button>
+        <button class="etape crpe" role="tab" aria-selected="false" data-etape="2"><span class="rond">CRPE</span><span><strong>Concours</strong><small>En fin de L3</small></span></button>
+        <button class="etape" role="tab" aria-selected="false" data-etape="3"><span class="rond">M1-M2</span><span><strong>Master M2E</strong><small>2 ans en alternance</small><br><span class="salaire">1 400 → 1 800 €</span></span></button>
+        <button class="etape" role="tab" aria-selected="false" data-etape="4"><span class="rond">PE</span><span><strong>Titulaire</strong><small>Professeur des écoles</small><br><span class="salaire">≈ 2 100 €</span></span></button>
       </div>
-      <figure class="video video-verticale">
+      <div class="detail-etape" id="detail-etape" aria-live="polite"></div>
+      </div>
+      <figure class="video video-verticale rv">
         <video controls preload="none" playsinline poster="videos/poster-devenir-pe.jpg" aria-label="Vidéo : le parcours pour devenir professeur des écoles">
           <source src="videos/devenir-pe.mp4" type="video/mp4">
         </video>
         <figcaption>▶ Le parcours · 35 s</figcaption>
       </figure>
     </div>
-
-    <div class="frise rv" role="tablist" aria-label="Étapes du parcours">
-      <button class="etape on" role="tab" aria-selected="true" data-etape="0"><span class="rond">Bac</span><span><strong>Baccalauréat</strong><small>Entrée à l'université</small></span></button>
-      <button class="etape" role="tab" aria-selected="false" data-etape="1"><span class="rond">L1-L3</span><span><strong>Licence PE</strong><small>3 ans · 180 ECTS</small></span></button>
-      <button class="etape crpe" role="tab" aria-selected="false" data-etape="2"><span class="rond">CRPE</span><span><strong>Concours</strong><small>En fin de L3</small></span></button>
-      <button class="etape" role="tab" aria-selected="false" data-etape="3"><span class="rond">M1-M2</span><span><strong>Master M2E</strong><small>2 ans en alternance</small><br><span class="salaire">1 400 → 1 800 €</span></span></button>
-      <button class="etape" role="tab" aria-selected="false" data-etape="4"><span class="rond">PE</span><span><strong>Titulaire</strong><small>Professeur des écoles</small><br><span class="salaire">≈ 2 100 €</span></span></button>
-    </div>
-    <div class="detail-etape" id="detail-etape" aria-live="polite"></div>
   </div>
 </section>
 
