@@ -390,9 +390,9 @@ dialog.lb .fermer{position:fixed;top:16px;right:16px;background:#fff;color:#000;
     <h1>Devenir professeur des écoles <em>au pied des Pyrénées</em></h1>
     <p class="lead">Au cœur d'un campus universitaire dynamique, le site de Tarbes de l'INSPE Toulouse Occitanie-Pyrénées forme les futurs enseignants du premier degré, de la licence au master.</p>
     <div class="pills">
-      <span class="pill r">Nouveau · Licence PE</span>
+      <span class="pill">Licence PE</span>
       <span class="pill">Master M2E</span>
-      <span class="pill">CRPE bilingue occitan</span>
+      <span class="pill">Bilingue Occitan</span>
       <span class="pill">DU Pédagogie du chant</span>
     </div>
     <div class="btns">
@@ -409,9 +409,9 @@ dialog.lb .fermer{position:fixed;top:16px;right:16px;background:#fff;color:#000;
   <div class="wrap">
     <div class="grille rv">
       <div class="stat"><b data-compte="5">0</b><span>années de formation, du bac au métier</span></div>
-      <div class="stat"><b data-compte="12">0</b><span>semaines de stage en 1<sup>re</sup> année de master</span></div>
-      <div class="stat"><b data-compte="120">0</b><span>places dans le grand amphithéâtre</span></div>
-      <div class="stat"><b data-compte="200" data-prefixe="≈">0</b><span>heures de formation spécifique en occitan</span></div>
+      <div class="stat"><b data-compte="30">0</b><span>places en Licence PE</span></div>
+      <div class="stat"><b data-compte="2">0</b><span>années de master en alternance</span></div>
+      <div class="stat"><b data-compte="1570">0</b><span>heures de formation en licence</span></div>
     </div>
   </div>
 </section>
@@ -576,15 +576,20 @@ dialog.lb .fermer{position:fixed;top:16px;right:16px;background:#fff;color:#000;
 
     <!-- Master M2E -->
     <div class="panneau" role="tabpanel" id="p-m2e" aria-labelledby="t-m2e" hidden>
-      <div class="duo" style="align-items:start;margin-bottom:28px">
+      <div class="lpe-bandeau">
+        <div><b>2 ans</b><span>4 semestres en alternance</span></div>
+        <div><b>120</b><span>crédits ECTS</span></div>
+        <div><b>30 sem.</b><span>de stage en école (12 en M1 + 18 en M2)</span></div>
+        <div><b>8 sites</b><span>dans l'académie, dont Tarbes</span></div>
+      </div>
+      <div class="duo" style="align-items:start">
         <div>
-          <h3>Master Enseignement et Éducation (M2E)</h3>
-          <p>Accessible après la réussite au concours, ce master de 2 ans alterne enseignements universitaires et stages sur le terrain. Il s'articule autour de 4 axes :</p>
-          <ul class="liste-check">
-            <li>Conception et mise en œuvre des apprentissages</li>
-            <li>Adaptation à la diversité des élèves et des contextes</li>
-            <li>Initiation à la recherche et développement professionnel continu</li>
-            <li>Inscription de l'acte d'enseigner dans le service public d'éducation</li>
+          <h3>Master Enseignement et Éducation (M2E) · mention Professorat des écoles</h3>
+          <p>Dans la continuité de la Licence PE, ce master prépare de façon <strong>progressive</strong> au métier en articulant <strong>théorie, pratique et recherche</strong>. Il s'appuie sur le référentiel national des compétences des métiers du professorat et de l'éducation (arrêté du 12 janvier 2026).</p>
+          <p>Il est accessible :</p>
+          <ul class="liste-check" style="margin-bottom:1.2em">
+            <li><strong>Aux lauréats du CRPE</strong> titulaires d'une licence : affectés pour 2 ans en master, avec un statut rémunéré</li>
+            <li><strong>Aux non-lauréats</strong> titulaires d'un bac+3 : candidature sur <a href="https://www.monmaster.gouv.fr" target="_blank" rel="noopener">Mon Master</a>, pour poursuivre sa formation et préparer le concours</li>
           </ul>
         </div>
         <div class="photo-stack">
@@ -592,12 +597,49 @@ dialog.lb .fermer{position:fixed;top:16px;right:16px;background:#fff;color:#000;
           <img class="petite" src="img/cours1.webp" alt="Étudiants en cours à l'INSPE" loading="lazy">
         </div>
       </div>
-      <div class="statuts">
-        <div class="statut"><small>1<sup>re</sup> année · M1</small><h3>Élève fonctionnaire</h3><div class="montant">≈ 1 400 €</div><ul><li>Nets par mois</li><li>12 semaines de stage</li></ul></div>
-        <div class="statut m2"><small>2<sup>e</sup> année · M2</small><h3>Fonctionnaire stagiaire</h3><div class="montant">≈ 1 800 €</div><ul><li>Nets par mois</li><li>En responsabilité de classe à mi-temps</li></ul></div>
+
+      <p style="margin:26px 0 0;font-weight:700">4 blocs de compétences</p>
+      <div class="blocs" style="margin-top:12px">
+        <div class="bloc" style="--c:var(--marine)"><span class="num">Bloc 1</span><h3>Maîtriser les disciplines</h3><p>Enseigner dans le cadre de la polyvalence : savoirs académiques et didactiques.</p></div>
+        <div class="bloc" style="--c:var(--rouge)"><span class="num">Bloc 2</span><h3>S'adapter à la diversité</h3><p>Adapter sa pratique à la diversité des élèves et au contexte d'exercice, y compris multilingue.</p></div>
+        <div class="bloc" style="--c:var(--vert-fonce)"><span class="num">Bloc 3</span><h3>Agir dans l'institution</h3><p>Agir au sein de la communauté éducative et du service public d'éducation.</p></div>
+        <div class="bloc" style="--c:#645F6B"><span class="num">Bloc 4</span><h3>Se développer professionnellement</h3><p>S'engager dans une démarche de développement professionnel : recherche, mémoire, collectif.</p></div>
+      </div>
+
+      <!-- Stages et statuts : progression M1 → M2 → titulaire -->
+      <div class="statuts" style="margin-top:28px">
+        <div class="statut"><small>1<sup>re</sup> année · M1</small><h3>Élève fonctionnaire</h3><div class="montant">≈ 1 400 €</div><ul><li>Nets par mois</li><li>Stage d'observation et de pratique accompagnée (SOPA)</li><li>12 semaines, à tiers-temps</li></ul></div>
+        <div class="statut m2"><small>2<sup>e</sup> année · M2</small><h3>Fonctionnaire stagiaire</h3><div class="montant">≈ 1 800 €</div><ul><li>Nets par mois</li><li>Stage en responsabilité (SER)</li><li>18 semaines, à mi-temps, avec tutorat mixte</li></ul></div>
         <div class="statut tit"><small>Après le master</small><h3>Professeur titulaire</h3><div class="montant">≈ 2 100 €</div><ul><li>Nets par mois</li><li>Engagement de servir de 4 ans</li></ul></div>
       </div>
-      <p class="note">Montants indicatifs (source : devenirenseignant.gouv.fr). Pendant la période de transition 2025-2027, d'autres situations existent : renseignez-vous auprès du site.</p>
+      <p class="note">Montants indicatifs. Le statut d'élève fonctionnaire est compatible avec les bourses sur critères sociaux. Pour les non-lauréats, les stages sont plus courts.</p>
+
+      <div class="cartes" style="margin-top:22px">
+        <div class="carte"><span class="kicker">Recherche</span><h3>Le mémoire</h3><p style="margin:0">Articulé avec la pratique professionnelle, il se construit sur les 4 semestres : cours de méthodologie, séminaires de suivi et tutorat personnalisé, jusqu'à la soutenance.</p></div>
+        <div class="carte"><span class="kicker">Certifications</span><h3>Langues &amp; numérique</h3><p style="margin:0">Des UE dédiées aux langues vivantes et au numérique pour atteindre et certifier le niveau attendu à l'issue des deux ans.</p></div>
+        <div class="carte"><span class="kicker">Langue régionale</span><h3>Parcours bilingue occitan</h3><p style="margin:0">Langue et culture occitanes, didactique et professionnalisation en contexte bilingue, avec un volet spécifique dans le bloc 1. <a href="#occitan">En savoir plus</a></p></div>
+      </div>
+
+      <details class="lpe-plus" style="margin-top:22px">
+        <summary>Organisation des enseignements (UE)</summary>
+        <div>
+          <p>Les unités d'enseignement (UE) reviennent chaque semestre selon 5 « rangs » :</p>
+          <ul class="liste-check">
+            <li><strong>Rangs 1 et 2</strong> · savoirs académiques et didactiques, polyvalence, classes multilingues et multiculturelles (blocs 1 et 2)</li>
+            <li><strong>Rang 3</strong> · analyse des contextes d'apprentissage pour enseigner (blocs 2 et 3)</li>
+            <li><strong>Rang 4</strong> · initiation à la recherche, production et soutenance du mémoire (bloc 4)</li>
+            <li><strong>Rang 5</strong> · professionnalisation et pratiques de terrain, adossées au stage SOPA ou SER, dont 2 h d'engagement dans le collectif apprenant</li>
+          </ul>
+        </div>
+      </details>
+      <details class="lpe-plus">
+        <summary>Non-lauréats : préparer le concours pendant le master</summary>
+        <div><p style="margin:0">Chaque semestre comprend une <strong>UE hors-cursus de préparation au concours</strong> : 2 UE de 36 h en M1 et 2 UE de 12 h en M2. Les stages, plus courts, sont validés par une UE non compensable au dernier semestre.</p></div>
+      </details>
+      <details class="lpe-plus">
+        <summary>Contacts de la formation</summary>
+        <div><p style="margin:0"><strong>Responsables :</strong> Agnès Morcillo, Georges Madar, Laurent Falcette (responsable du site de Tarbes).<br><strong>Secrétariat :</strong> Sandrine Domenech.<br>Programme détaillé et syllabus sur le <a href="https://inspe.univ-toulouse.fr/accueil/formation/professeur-des-ecoles/master-m2e-mention-professorat-des-ecoles" target="_blank" rel="noopener">site de l'INSPE TOP</a>.</p></div>
+      </details>
     </div>
 
     <!-- Concours -->
@@ -892,7 +934,7 @@ const ETAPES = [
   { titre:"Baccalauréat", texte:"Toutes les séries permettent d'accéder à la Licence Professorat des écoles. Candidature via <strong>Parcoursup</strong>. Un profil polyvalent et curieux est un atout pour ce métier." },
   { titre:"Licence Professorat des écoles (L1 → L3)", texte:"Nouvelle licence ouverte dès la rentrée 2026 (candidature sur Parcoursup) : 1 570 h de formation, 180 ECTS, savoirs de l'école primaire (70 %), pédagogie, contexte institutionnel et <strong>au moins 10 semaines de stage</strong> en école. Elle prépare directement au concours." },
   { titre:"Le CRPE en fin de licence", texte:"Le concours est accessible dès l'inscription en L3 : <strong>épreuves écrites d'admissibilité</strong> (français-maths, autres domaines) puis <strong>épreuves orales d'admission</strong> (exposé disciplinaire, entretien de motivation). La licence doit être validée pour bénéficier du concours.", crpe:true },
-  { titre:"Master Enseignement et Éducation (M2E)", texte:"Lauréat du concours, vous entrez en master pour 2 ans, en alternance école / INSPE. <strong>M1 : élève fonctionnaire</strong>, ≈ 1 400 € nets/mois, 12 semaines de stage. <strong>M2 : fonctionnaire stagiaire</strong>, ≈ 1 800 € nets/mois, en classe à mi-temps." },
+  { titre:"Master Enseignement et Éducation (M2E)", texte:"Lauréat du concours, vous entrez en master pour 2 ans, en alternance école / INSPE. <strong>M1 : élève fonctionnaire</strong>, ≈ 1 400 € nets/mois, 12 semaines de stage. <strong>M2 : fonctionnaire stagiaire</strong>, ≈ 1 800 € nets/mois, 18 semaines en responsabilité de classe à mi-temps. 120 ECTS et un mémoire de recherche." },
   { titre:"Professeur des écoles titulaire", texte:"Titularisé à l'issue du master, vous êtes rémunéré environ <strong>2 100 € nets/mois</strong> en début de carrière, avec un engagement de servir de 4 ans. Une carrière riche en évolutions vous attend (voir « Et après ? »)." }
 ];
 
@@ -1137,7 +1179,7 @@ const obs = new IntersectionObserver(es => es.forEach(e => {
 $$('.rv').forEach(el => obs.observe(el));
 function compte(el){
   const fin = +el.dataset.compte, pre = el.dataset.prefixe || '', t0 = performance.now();
-  const pas = t => { const p = Math.min(1, (t - t0) / 1200); el.textContent = pre + Math.round(fin * (1 - Math.pow(1-p, 3))); if (p<1) requestAnimationFrame(pas); };
+  const pas = t => { const p = Math.min(1, (t - t0) / 1200); el.textContent = pre + Math.round(fin * (1 - Math.pow(1-p, 3))).toLocaleString('fr-FR'); if (p<1) requestAnimationFrame(pas); };
   requestAnimationFrame(pas);
 }
 
